@@ -11,3 +11,7 @@ html {
   width: 100%;
   text-align: center;
 }
+
+#burglary .MuiCheckbox-root	{
+  color: #FF0000 !important;
+}
