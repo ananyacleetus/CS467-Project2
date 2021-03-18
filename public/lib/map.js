@@ -10,8 +10,14 @@ var API_KEY = KEYS.GOOGLE_API_KEY;
 function MapContainer(props) {
   var mapQuery = "UIUC";
   var UIUCLat = 40.1019523;
-  var UIUCLong = -88.2271615; // const UIUCcenterPoint = new props.google.maps.LatLng(UIUCLat, UIUCLong);
-  //These props are sent from the callback functions from the sidebar to the main layout to the map
+  var UIUCLong = -88.2271615;
+  var pointData = [{
+    lat: 45,
+    long: -89
+  }, {
+    lat: 39,
+    long: -85
+  }]; //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
 
   var burglary = props.burglary;
@@ -23,7 +29,10 @@ function MapContainer(props) {
   var tresspassing = props.tresspassing;
   var sexualAssault = props.sexualAssault;
   var prostitution = props.prostitution;
-  var underageLiquor = props.underageLiquor; // console.log(burglary);
+  var underageLiquor = props.underageLiquor;
+  var circleRadius = 40; // console.log(burglary);
+  // <Marker
+  //   name={'Current location'} />
 
   var mapStyle = {
     position: "relative",
@@ -32,20 +41,40 @@ function MapContainer(props) {
     margin: "-3.5% 3.5%",
     display: "block"
   };
+  var map = d3.select("#map");
+  var overlayView = new google.maps.OverlayView();
+
+  overlayView.onAdd = function () {
+    var layer = d3.select(this.getPanes.overlayMouseTarget).append("div").attr("class", "crimeSpots");
+
+    overlayView.draw = function () {
+      var projection = this.getProjection(),
+          padding = 10;
+      var marker = layer.selectAll("svg").data(pointData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
+      marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding);
+
+      function transform(d) {
+        d = new google.maps.LatLng(d.value[1], d.value[0]);
+        d = projection.fromLatLngToDivPixel(d);
+        return d3.select(this).style("left", d.x - padding + "px").style("top", d.y - padding + "px");
+      }
+    };
+
+    overlayView.setMap(map);
+  };
+
   return /*#__PURE__*/React.createElement("div", {
     id: "fullChart"
   }, /*#__PURE__*/React.createElement(Map, {
     google: props.google,
-    zoom: 14,
+    zoom: 16,
     id: "map",
     initialCenter: {
       lat: UIUCLat,
       lng: UIUCLong
     },
     style: mapStyle
-  }, /*#__PURE__*/React.createElement(Marker, {
-    name: 'Current location'
-  })));
+  }));
 }
 
 export default GoogleApiWrapper({

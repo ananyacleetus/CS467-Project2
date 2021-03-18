@@ -14,8 +14,8 @@ function MapContainer(props) {
   const mapQuery = "UIUC";
   const UIUCLat = 40.1019523;
   const UIUCLong = -88.2271615;
-  // const UIUCcenterPoint = new props.google.maps.LatLng(UIUCLat, UIUCLong);
 
+  const pointData = [{lat: 45, long: -89}, {lat: 39, long: -85}];
 
   //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
@@ -30,25 +30,69 @@ function MapContainer(props) {
   const prostitution = props.prostitution;
   const underageLiquor = props.underageLiquor;
 
+  var circleRadius = 40;
+
   // console.log(burglary);
+
+  // <Marker
+  //   name={'Current location'} />
 
 
 const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block" };
 
+var map = d3.select("#map");
+
+var overlayView = new google.maps.OverlayView();
+
+
+overlayView.onAdd = function () {
+
+    var layer = d3.select(this.getPanes.overlayMouseTarget).append("div").attr("class", "crimeSpots");
+
+    overlayView.draw = function () {
+      var projection = this.getProjection(), padding = 10;
+
+      var marker = layer.selectAll("svg")
+                    .data(pointData)
+                    .each(transform)
+                    .enter()
+                    .append("svg")
+                    .each(transform)
+                    .attr("class", "marker");
+
+
+    marker.append("circle")
+                   .attr("r", circleRadius)
+                   .attr("cx", padding)
+                   .attr("cy", padding);
+
+                   function transform(d) {
+        d = new google.maps.LatLng(d.value[1], d.value[0]);
+        d = projection.fromLatLngToDivPixel(d);
+        return d3.select(this)
+            .style("left", (d.x - padding) + "px")
+            .style("top", (d.y - padding) + "px");
+      }
+    }
+
+
+    overlayView.setMap(map);
+};
+
+
     return (
 
-    <div id="fullChart">
-        <Map google={props.google} zoom={14} id="map" initialCenter={
-          {
-            lat: UIUCLat,
-            lng: UIUCLong
+      <div id="fullChart">
+        <Map google={props.google} zoom={16} id="map"
+          initialCenter={
+            {
+              lat: UIUCLat,
+              lng: UIUCLong
+            }
           }
-        } style={mapStyle}>
-       <Marker
-               name={'Current location'} />
-
-     </Map>
-   </div>
+          style={mapStyle}>
+        </Map>
+      </div>
 
     );
 
