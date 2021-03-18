@@ -8,6 +8,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import "..//css/map.css";
 
 const API_KEY = KEYS.GOOGLE_API_KEY;
+// var map;
 
 function MapContainer(props) {
 
@@ -30,7 +31,7 @@ function MapContainer(props) {
   const prostitution = props.prostitution;
   const underageLiquor = props.underageLiquor;
 
-  var circleRadius = 40;
+  var circleRadius = 4;
 
   // console.log(burglary);
 
@@ -40,9 +41,20 @@ function MapContainer(props) {
 
 const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block" };
 
+// var map = new google.maps.Map(d3.select("#map").node(), {
+//   zoom: 16,
+//   center: new google.maps.LatLng(UIUCLat, UIUCLong),
+//   mapTypeId: google.maps.MapTypeId.TERRAIN,
+//   style: mapStyle
+// });
+
+// map = d3.select("#map").node;
 var map = d3.select("#map");
 
-var overlayView = new google.maps.OverlayView();
+
+var overlayView = new google.maps.OverlayView({
+                setMap : map
+            });
 
 
 overlayView.onAdd = function () {
@@ -64,7 +76,9 @@ overlayView.onAdd = function () {
     marker.append("circle")
                    .attr("r", circleRadius)
                    .attr("cx", padding)
-                   .attr("cy", padding);
+                   .attr("cy", padding)
+                   .attr("stroke", "#1EA1F2")
+                   .attr("fill", "#1EA1F2");
 
                    function transform(d) {
         d = new google.maps.LatLng(d.value[1], d.value[0]);
@@ -73,16 +87,19 @@ overlayView.onAdd = function () {
             .style("left", (d.x - padding) + "px")
             .style("top", (d.y - padding) + "px");
       }
-    }
+    };
 
 
-    overlayView.setMap(map);
 };
 
+// map = d3.select("#map");
+
+// overlayView.setMap(this.map);
 
     return (
 
       <div id="fullChart">
+
         <Map google={props.google} zoom={16} id="map"
           initialCenter={
             {
