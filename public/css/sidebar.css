@@ -13,50 +13,50 @@ html {
 }
 
 .MuiCheckbox-root.burglary	{
-  color: green;
+  color: green !important;
 }
 
 
 .MuiCheckbox-root.idUse	{
-  color: blue;
+  color: blue !important;
 }
 
 
 .MuiCheckbox-root.theftUnder	{
-  color: yellow;
+  color: yellow !important;
 }
 
 
 .MuiCheckbox-root.theftOver	{
-  color: orange;
+  color: orange !important;
 }
 
 
 .MuiCheckbox-root.harrassment	{
-  color: purple;
+  color: purple !important;
 }
 
 
 .MuiCheckbox-root.propertyDamage	{
-  color: pink;
+  color: pink !important;
 }
 
 .MuiCheckbox-root.tresspassing	{
-  color: teal;
+  color: teal !important;
 }
 
 
 .MuiCheckbox-root.sexualAssault	{
-  color: red;
+  color: red !important;
 }
 
 .MuiCheckbox-root.prostitution	{
-  color: black;
+  color: black !important;
 }
 
 
 .MuiCheckbox-root.underageLiquor	{
-  color: gray;
+  color: gray !important;
 }
 
 
