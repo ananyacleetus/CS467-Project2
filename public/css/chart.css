@@ -1,0 +1,31 @@
+@import "https://assets.loupbrun.ca/fonts/booster/stylesheet.css";
+
+html {
+  font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+}
+
+#fullChart {
+  width: 100%;
+  text-align: center;
+}
+
+#chart_svg {
+  display: inline-block;
+  /* margin: 0 auto; */
+  padding-left: 50px;
+}
+
+.chartLine {
+  fill: none;
+  stroke: #2b4162;
+  stroke-width: 2px;
+}
+
+#tooltip {
+    position: absolute;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid lightgrey;
+    font-size: small;
+    padding: 5px;
+}
