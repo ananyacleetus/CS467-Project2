@@ -2,13 +2,15 @@ import * as d3 from "d3";
 import { utcParse } from "d3";
 import React, { useState, useEffect } from "react";
 import * as KEYS from '/dist/config.js'
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 //stylesheet
 import "..//css/map.css";
 
-function Map(props) {
+const API_KEY = KEYS.GOOGLE_API_KEY;
 
-  const API_KEY = KEYS.GOOGLE_API_KEY;
+function MapContainer(props) {
+
   const mapQuery = "UIUC";
 
 
@@ -28,20 +30,27 @@ function Map(props) {
   // console.log(burglary);
 
 
+const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-2% 3.5%", display: "block" };
+
     return (
 
-        <div id="fullChart">
-        <iframe
-        id="map"
-        loading="lazy"
-        allowFullScreen
-        src={"https://www.google.com/maps/embed/v1/place?key=" + API_KEY + "&q=" + mapQuery}>
-        </iframe>
-        </div>
+    <div id="fullChart">
+        <Map google={props.google} zoom={14} id="map" style={mapStyle}>
+       <Marker
+               name={'Current location'} />
+
+       <InfoWindow>
+           <div>
+             <h1>TEST</h1>
+           </div>
+       </InfoWindow>
+     </Map>
+   </div>
 
     );
 
 }
 
-
-export default Map;
+export default GoogleApiWrapper({
+  apiKey: API_KEY
+})(MapContainer)
