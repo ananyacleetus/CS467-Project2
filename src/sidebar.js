@@ -128,7 +128,7 @@ import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons';
                />
                <FormControlLabel
                  control={<Checkbox checked={prostitution} onChange={changeProstitution} className="prostitution"/>}
-                 label="Prostituion"
+                 label="Prostitution"
                />
                <FormControlLabel
                  control={<Checkbox checked={underageLiquor} onChange={changeUnderageLiquor} className="underageLiquor"/>}

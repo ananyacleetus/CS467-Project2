@@ -148,7 +148,7 @@ function Sidebar(props) {
       onChange: changeProstitution,
       className: "prostitution"
     }),
-    label: "Prostituion"
+    label: "Prostitution"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: underageLiquor,
