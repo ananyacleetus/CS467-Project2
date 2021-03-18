@@ -7,7 +7,7 @@ function HeaderBar() {
     className: "headerbox"
   }, /*#__PURE__*/React.createElement("h1", {
     className: "title"
-  }, "Tesla Stock Price (TSLA) compared to Elon Musk Tweets"));
+  }, "UIUC Crime Map"));
 }
 
 export default HeaderBar;
