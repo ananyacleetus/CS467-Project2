@@ -12,7 +12,7 @@ module.exports = {
     '@snowpack/plugin-sass',
   ],
   packageOptions: {
-    /* ... */
+    // "knownEntrypoints": ["config.js"]
   },
   devOptions: {
     /* ... */

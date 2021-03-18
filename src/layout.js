@@ -9,7 +9,10 @@ import Map from "/lib/map.js";
 import Sidebar from "/lib/sidebar.js";
 
 
+
 function Layout (props) {
+
+  // const result = dotenv.config();
 
     return (
 
