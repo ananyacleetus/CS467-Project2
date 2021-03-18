@@ -41,7 +41,6 @@ function Layout(props) {
   var changeHarrassment = setVal => {
     setVal = !harrassment;
     setHarrassment(setVal);
-    props.onChangeHarrassment(setVal);
   };
 
   var changePropertyDamage = setVal => {
