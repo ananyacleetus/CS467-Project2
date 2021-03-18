@@ -25,51 +25,61 @@ function Sidebar(props) {
   var changeBurglary = setVal => {
     setVal = !burglary;
     setBurglary(setVal);
+    props.onChangeBurglary(setVal);
   };
 
   var changeIdUse = setVal => {
     setVal = !idUse;
     setIdUse(setVal);
+    props.onChangeIdUse(setVal);
   };
 
   var changeTheftUnder = setVal => {
     setVal = !theftUnder;
     setTheftUnder(setVal);
+    props.onChangeTheftUnder(setVal);
   };
 
   var changeTheftOver = setVal => {
     setVal = !theftOver;
     setTheftOver(setVal);
+    props.onChangeTheftOver(setVal);
   };
 
   var changeHarrassment = setVal => {
     setVal = !harrassment;
     setHarrassment(setVal);
+    props.onChangeHarrassment(setVal);
   };
 
   var changePropertyDamage = setVal => {
     setVal = !propertyDamage;
     setPropertyDamage(setVal);
+    props.onChangePropertyDamage(setVal);
   };
 
   var changeTresspassing = setVal => {
     setVal = !tresspassing;
     setTresspassing(setVal);
+    props.onChangeTresspassing(setVal);
   };
 
   var changeSexualAssault = setVal => {
     setVal = !sexualAssault;
     setSexualAssault(setVal);
+    props.onChangeSexualAssault(setVal);
   };
 
   var changeProstitution = setVal => {
     setVal = !prostitution;
     setProstitution(setVal);
+    props.onChangeProstituion(setVal);
   };
 
   var changeUnderageLiquor = setVal => {
     setVal = !underageLiquor;
     setUnderageLiquor(setVal);
+    props.onChangeUnderageLiquor(setVal);
   };
 
   return /*#__PURE__*/React.createElement("div", {

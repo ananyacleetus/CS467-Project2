@@ -28,42 +28,61 @@ import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons';
    const changeBurglary = (setVal) => {
      setVal = !burglary;
      setBurglary(setVal);
+     props.onChangeBurglary(setVal);
    }
    const changeIdUse = (setVal) => {
      setVal = !idUse;
      setIdUse(setVal);
+     props.onChangeIdUse(setVal);
+
    }
    const changeTheftUnder = (setVal) => {
      setVal = !theftUnder;
      setTheftUnder(setVal);
+     props.onChangeTheftUnder(setVal);
+
    }
    const changeTheftOver = (setVal) => {
      setVal = !theftOver;
      setTheftOver(setVal);
+     props.onChangeTheftOver(setVal);
+
    }
    const changeHarrassment = (setVal) => {
      setVal = !harrassment;
      setHarrassment(setVal);
+     props.onChangeHarrassment(setVal);
+
    }
    const changePropertyDamage = (setVal) => {
      setVal = !propertyDamage;
      setPropertyDamage(setVal);
+     props.onChangePropertyDamage(setVal);
+
    }
    const changeTresspassing = (setVal) => {
      setVal = !tresspassing;
      setTresspassing(setVal);
+     props.onChangeTresspassing(setVal);
+
    }
    const changeSexualAssault = (setVal) => {
      setVal = !sexualAssault;
      setSexualAssault(setVal);
+     props.onChangeSexualAssault(setVal);
+
    }
    const changeProstitution = (setVal) => {
      setVal = !prostitution;
      setProstitution(setVal);
+     props.onChangeProstituion(setVal);
+
    }
    const changeUnderageLiquor = (setVal) => {
      setVal = !underageLiquor;
      setUnderageLiquor(setVal);
+     props.onChangeUnderageLiquor(setVal);
+
    }
 
      return (

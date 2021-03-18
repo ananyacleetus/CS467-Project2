@@ -10,7 +10,7 @@ function Map(props) {
   var mapQuery = "UIUC";
   return /*#__PURE__*/React.createElement("div", {
     id: "fullChart"
-  }, /*#__PURE__*/React.createElement("iframe", {
+  }, /*#__PURE__*/React.createElement("p", null, "Testing Callback:"), /*#__PURE__*/React.createElement("iframe", {
     id: "map",
     loading: "lazy",
     allowFullScreen: true,

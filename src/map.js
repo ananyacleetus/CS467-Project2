@@ -15,6 +15,8 @@ function Map(props) {
 
         <div id="fullChart">
 
+          <p>Testing Callback:</p>
+
         <iframe
         id="map"
         loading="lazy"
