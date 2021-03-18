@@ -12,6 +12,57 @@ html {
   text-align: center;
 }
 
-#burglary .MuiCheckbox-root	{
-  color: #FF0000 !important;
+.MuiCheckbox-root.burglary	{
+  color: green;
+}
+
+
+.MuiCheckbox-root.idUse	{
+  color: blue;
+}
+
+
+.MuiCheckbox-root.theftUnder	{
+  color: yellow;
+}
+
+
+.MuiCheckbox-root.theftOver	{
+  color: orange;
+}
+
+
+.MuiCheckbox-root.harrassment	{
+  color: purple;
+}
+
+
+.MuiCheckbox-root.propertyDamage	{
+  color: pink;
+}
+
+.MuiCheckbox-root.tresspassing	{
+  color: teal;
+}
+
+
+.MuiCheckbox-root.sexualAssault	{
+  color: red;
+}
+
+.MuiCheckbox-root.prostitution	{
+  color: black;
+}
+
+
+.MuiCheckbox-root.underageLiquor	{
+  color: gray;
+}
+
+
+
+
+
+#selectText {
+  margin-bottom: 10px;
 }

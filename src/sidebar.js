@@ -73,46 +73,46 @@ import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons';
          <h2>Crime Descriptions:</h2>
 
            <FormControl>
-             <FormLabel>Select one or more filters:</FormLabel>
+             <FormLabel id="selectText">Select one or more filters:</FormLabel>
              <FormGroup>
                <FormControlLabel
-                 control={<Checkbox checked={burglary} onChange={changeBurglary}/>}
+                 control={<Checkbox checked={burglary} onChange={changeBurglary} className="burglary"/>}
                  label="Burglary"
                />
                <FormControlLabel
-                 control={<Checkbox checked={idUse} onChange={changeIdUse} id="idUse"/>}
+                 control={<Checkbox checked={idUse} onChange={changeIdUse} className="idUse"/>}
                  label="Unlawful use of I.D."
                />
                <FormControlLabel
-                 control={<Checkbox checked={theftUnder} onChange={changeTheftUnder} id="theftUnder"/>}
+                 control={<Checkbox checked={theftUnder} onChange={changeTheftUnder} className="theftUnder"/>}
                  label="Theft $500 and under"
                />
                <FormControlLabel
-                 control={<Checkbox checked={theftOver} onChange={changeTheftOver} id="theftOver"/>}
+                 control={<Checkbox checked={theftOver} onChange={changeTheftOver} className="theftOver"/>}
                  label="Theft over $500"
                />
                <FormControlLabel
-                 control={<Checkbox checked={harrassment} onChange={changeHarrassment} id="harrassment"/>}
+                 control={<Checkbox checked={harrassment} onChange={changeHarrassment} className="harrassment"/>}
                  label="Harrassment"
                />
                <FormControlLabel
-                 control={<Checkbox checked={propertyDamage} onChange={changePropertyDamage} id="propertyDamage"/>}
+                 control={<Checkbox checked={propertyDamage} onChange={changePropertyDamage} className="propertyDamage"/>}
                  label="Criminal damange to property"
                />
                <FormControlLabel
-                 control={<Checkbox checked={tresspassing} onChange={changeTresspassing} id="tresspassing"/>}
+                 control={<Checkbox checked={tresspassing} onChange={changeTresspassing} className="tresspassing"/>}
                  label="Tresspassing"
                />
                <FormControlLabel
-                 control={<Checkbox checked={sexualAssault} onChange={changeSexualAssault} id="sexualAssault"/>}
+                 control={<Checkbox checked={sexualAssault} onChange={changeSexualAssault} className="sexualAssault"/>}
                  label="Sexual Assault"
                />
                <FormControlLabel
-                 control={<Checkbox checked={prostitution} onChange={changeProstitution} id="prostitution"/>}
+                 control={<Checkbox checked={prostitution} onChange={changeProstitution} className="prostitution"/>}
                  label="Prostituion"
                />
                <FormControlLabel
-                 control={<Checkbox checked={underageLiquor} onChange={changeUnderageLiquor} id="underageLiquor"/>}
+                 control={<Checkbox checked={underageLiquor} onChange={changeUnderageLiquor} className="underageLiquor"/>}
                  label="Liquor-underage"
                />
 

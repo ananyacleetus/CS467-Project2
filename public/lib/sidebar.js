@@ -74,73 +74,76 @@ function Sidebar(props) {
 
   return /*#__PURE__*/React.createElement("div", {
     className: "fullsidebar"
-  }, /*#__PURE__*/React.createElement("h2", null, "Crime Descriptions:"), /*#__PURE__*/React.createElement(FormControl, null, /*#__PURE__*/React.createElement(FormLabel, null, "Select one or more filters:"), /*#__PURE__*/React.createElement(FormGroup, null, /*#__PURE__*/React.createElement(FormControlLabel, {
+  }, /*#__PURE__*/React.createElement("h2", null, "Crime Descriptions:"), /*#__PURE__*/React.createElement(FormControl, null, /*#__PURE__*/React.createElement(FormLabel, {
+    id: "selectText"
+  }, "Select one or more filters:"), /*#__PURE__*/React.createElement(FormGroup, null, /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: burglary,
-      onChange: changeBurglary
+      onChange: changeBurglary,
+      className: "burglary"
     }),
     label: "Burglary"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: idUse,
       onChange: changeIdUse,
-      id: "idUse"
+      className: "idUse"
     }),
     label: "Unlawful use of I.D."
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: theftUnder,
       onChange: changeTheftUnder,
-      id: "theftUnder"
+      className: "theftUnder"
     }),
     label: "Theft $500 and under"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: theftOver,
       onChange: changeTheftOver,
-      id: "theftOver"
+      className: "theftOver"
     }),
     label: "Theft over $500"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: harrassment,
       onChange: changeHarrassment,
-      id: "harrassment"
+      className: "harrassment"
     }),
     label: "Harrassment"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: propertyDamage,
       onChange: changePropertyDamage,
-      id: "propertyDamage"
+      className: "propertyDamage"
     }),
     label: "Criminal damange to property"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: tresspassing,
       onChange: changeTresspassing,
-      id: "tresspassing"
+      className: "tresspassing"
     }),
     label: "Tresspassing"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: sexualAssault,
       onChange: changeSexualAssault,
-      id: "sexualAssault"
+      className: "sexualAssault"
     }),
     label: "Sexual Assault"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: prostitution,
       onChange: changeProstitution,
-      id: "prostitution"
+      className: "prostitution"
     }),
     label: "Prostituion"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
       checked: underageLiquor,
       onChange: changeUnderageLiquor,
-      id: "underageLiquor"
+      className: "underageLiquor"
     }),
     label: "Liquor-underage"
   }))), /*#__PURE__*/React.createElement("h2", null, "Date/Time Filters:"));
