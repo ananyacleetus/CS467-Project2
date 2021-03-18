@@ -8,7 +8,10 @@ import "..//css/map.css";
 var API_KEY = KEYS.GOOGLE_API_KEY;
 
 function MapContainer(props) {
-  var mapQuery = "UIUC"; //These props are sent from the callback functions from the sidebar to the main layout to the map
+  var mapQuery = "UIUC";
+  var UIUCLat = 40.1019523;
+  var UIUCLong = -88.2271615; // const UIUCcenterPoint = new props.google.maps.LatLng(UIUCLat, UIUCLong);
+  //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
 
   var burglary = props.burglary;
@@ -26,7 +29,7 @@ function MapContainer(props) {
     position: "relative",
     width: "1200px",
     height: "1000px",
-    margin: "-2% 3.5%",
+    margin: "-3.5% 3.5%",
     display: "block"
   };
   return /*#__PURE__*/React.createElement("div", {
@@ -35,10 +38,14 @@ function MapContainer(props) {
     google: props.google,
     zoom: 14,
     id: "map",
+    initialCenter: {
+      lat: UIUCLat,
+      lng: UIUCLong
+    },
     style: mapStyle
   }, /*#__PURE__*/React.createElement(Marker, {
     name: 'Current location'
-  }), /*#__PURE__*/React.createElement(InfoWindow, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "TEST")))));
+  })));
 }
 
 export default GoogleApiWrapper({

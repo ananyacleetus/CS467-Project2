@@ -12,6 +12,9 @@ const API_KEY = KEYS.GOOGLE_API_KEY;
 function MapContainer(props) {
 
   const mapQuery = "UIUC";
+  const UIUCLat = 40.1019523;
+  const UIUCLong = -88.2271615;
+  // const UIUCcenterPoint = new props.google.maps.LatLng(UIUCLat, UIUCLong);
 
 
   //These props are sent from the callback functions from the sidebar to the main layout to the map
@@ -30,20 +33,20 @@ function MapContainer(props) {
   // console.log(burglary);
 
 
-const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-2% 3.5%", display: "block" };
+const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block" };
 
     return (
 
     <div id="fullChart">
-        <Map google={props.google} zoom={14} id="map" style={mapStyle}>
+        <Map google={props.google} zoom={14} id="map" initialCenter={
+          {
+            lat: UIUCLat,
+            lng: UIUCLong
+          }
+        } style={mapStyle}>
        <Marker
                name={'Current location'} />
 
-       <InfoWindow>
-           <div>
-             <h1>TEST</h1>
-           </div>
-       </InfoWindow>
      </Map>
    </div>
 
