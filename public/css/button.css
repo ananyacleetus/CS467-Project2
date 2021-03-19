@@ -18,6 +18,13 @@ p {
   font-size: 25px;
 }
 
+
+img {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+}
+
 #introLink {
   font-size: 18px;
   padding-bottom: 0;
