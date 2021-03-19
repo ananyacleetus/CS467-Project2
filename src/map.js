@@ -28,9 +28,52 @@ function MapContainer(props) {
     {crimeType: "sexualAssault", outlineColor: "#B352FF", fillColor: "#DEBCFF"},
     {crimeType: "prostitution", outlineColor: "#FF5AFF", fillColor: "#FFC6FF"},
     {crimeType: "underageLiquor", outlineColor: "#B1B1A8", fillColor: "#DDDDD1"},
-  ]
+  ];
 
-  const pointData = [{lat: 40.10935, long: -88.2310087}, {lat: 40.1125993, long: -88.2272643}, {lat: 40.1090874, long: -88.2313091}];
+
+  const fillColors = [
+    "#FFADAD",
+    "#FFD6A5",
+    "#FFEE99",
+    "#CAFFBF",
+    "#9BF6FF",
+    "#A0C4FF",
+    "#BDB2FF",
+     "#DEBCFF",
+     "#FFC6FF",
+     "#DDDDD1",
+  ];
+
+  const outlineColors = [
+    "#FF4747",
+    "#FFA93F",
+    "#FFE24E",
+    "#6FFF52",
+    "#37EEFF",
+    "#3B86FF",
+    "#664AFF",
+    "#B352FF",
+    "#FF5AFF",
+    "#B1B1A8",
+  ];
+
+  const crimeTypes = [
+    "burglary",
+    "idUse",
+    "theftUnder",
+    "theftOver",
+   "harrassment",
+    "propertyDamage",
+    "tresspassing",
+    "sexualAssault",
+    "prostitution",
+    "underageLiquor"
+  ];
+
+
+
+
+  const pointData = [{lat: 40.10935, long: -88.2310087, crime: "harrassment"}, {lat: 40.1125993, long: -88.2272643, crime: "prostitution"}, {lat: 40.1090874, long: -88.2313091, crime: "theftOver"}];
 
   //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
@@ -115,8 +158,14 @@ function MapContainer(props) {
       .attr("r", circleRadius)
       .attr("cx", padding)
       .attr("cy", padding)
-      .attr("stroke", "#FF4747")
-      .attr("fill", "#FFADAD");
+      .attr("stroke", function(d) {
+        var crimeIdx = crimeTypes.indexOf(d.crime);
+        return outlineColors[crimeIdx];
+      })
+      .attr("fill", function(d) {
+        var crimeIdx = crimeTypes.indexOf(d.crime);
+        return fillColors[crimeIdx];
+      });
 
 
       // var marker = layer.selectAll(".marker")
