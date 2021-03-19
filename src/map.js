@@ -135,9 +135,14 @@ function MapContainer(props) {
 
 
 
+  // useEffect(() => {
+  //   initMap();
+  // });
+
+
   useEffect(() => {
     initMap();
-  });
+}, [props]);
 
   return (
 

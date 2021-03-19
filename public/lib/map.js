@@ -97,10 +97,13 @@ function MapContainer(props) {
   overlayView.setMap(map); // <OverlayView
   //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
   // </OverlayView>
+  // useEffect(() => {
+  //   initMap();
+  // });
 
   useEffect(() => {
     initMap();
-  });
+  }, [props]);
   return /*#__PURE__*/React.createElement("div", {
     id: "fullChart"
   }, /*#__PURE__*/React.createElement("div", {
