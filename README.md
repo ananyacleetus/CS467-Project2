@@ -2,9 +2,9 @@
 
 
 ## Environment and Tools Used
-* __Libraries:__ React v17.0.1, D3.js v6.5.0, Material-UI v4.11.3, Flask v0.12
+* __Libraries:__ React v17.0.1, D3.js v6.5.0, Material-UI v4.11.3
 * __APIs:__ Google Maps Embed API, Google Maps JavaScript API, Maps Static API
-* __Misc Tools:__ Snowpack v3.0.13, Babel v7.13.1, Marvel Prototyping App, Python Pandas, Selenium
+* __Misc Tools:__ Snowpack v3.0.13, Babel v7.13.1, Marvel Prototyping App
 
 
 ## Instructions

@@ -18,8 +18,14 @@ p {
   font-size: 25px;
 }
 
+#introLink {
+  font-size: 18px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
 .toolset {
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 200px;
 }
 
