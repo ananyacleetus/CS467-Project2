@@ -104,6 +104,9 @@ function MapContainer(props) {
     const prostitution = props.prostitution;
     const underageLiquor = props.underageLiquor;
 
+    const startDate = props.startDate;
+    const endDate = props.endDate;
+
     var circleRadius = 15;
     var strokeWidth = 3;
     var zoomSize = 15;

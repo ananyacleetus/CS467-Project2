@@ -30,6 +30,11 @@ function Sidebar (props) {
   const[prostitution, setProstitution] = useState(true);
   const[underageLiquor, setUnderageLiquor] = useState(true);
 
+  const[startDate, setStartDate] = useState("2020-01-25");
+  const[endDate, setEndDate] = useState("2021-03-19");
+
+
+
   const changeBurglary = (setVal) => {
     setVal = !burglary;
     setBurglary(setVal);
@@ -89,6 +94,22 @@ function Sidebar (props) {
     props.onChangeUnderageLiquor(setVal);
 
   }
+
+  const changeStartDate = (setVal) => {
+    setStartDate(setVal);
+    props.onChangeStartDate(setVal);
+
+  }
+  const changeEndDate = (setVal) => {
+    setEndDate(setVal);
+    props.onChangeEndDate(setVal);
+
+  }
+
+
+   const sendDates = (e) => {
+
+   }
 
   return (
 
@@ -154,6 +175,8 @@ function Sidebar (props) {
               label="Start Date"
               type="date"
               defaultValue="2020-01-25"
+              onChange={changeStartDate}
+              value={startDate}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -165,6 +188,8 @@ function Sidebar (props) {
               label="End Date"
               type="date"
               defaultValue="2021-03-19"
+              onChange={changeEndDate}
+              value={endDate}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -172,7 +197,7 @@ function Sidebar (props) {
           </div>
         </form>
 
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" >
           Submit
         </Button>
       </div>

@@ -23,6 +23,9 @@ function Layout (props) {
      const[prostitution, setProstitution] = useState(true);
      const[underageLiquor, setUnderageLiquor] = useState(true);
 
+     const[startDate, setStartDate] = useState("2020-01-25");
+     const[endDate, setEndDate] = useState("2021-03-19");
+
 
      const changeBurglary = (setVal) => {
        setVal = !burglary;
@@ -74,6 +77,15 @@ function Layout (props) {
 
      }
 
+     const changeStartDate = (setVal) => {
+       setStartDate(setVal);
+
+     }
+     const changeEndDate = (setVal) => {
+       setEndDate(setVal);
+
+     }
+
 
 
     return (
@@ -94,6 +106,8 @@ function Layout (props) {
           sexualAssault={sexualAssault}
           prostitution={prostitution}
           underageLiquor={underageLiquor}
+          startDate={startDate}
+          endDate={endDate}
           />
         </div>
         <div className="D">
@@ -107,7 +121,10 @@ function Layout (props) {
           onChangeTresspassing={(e) => { changeTresspassing(e) }}
           onChangeSexualAssault={(e) => { changeSexualAssault(e) }}
           onChangeProstituion={(e) => { changeProstitution(e) }}
-          onChangeUnderageLiquor={(e) => { changeUnderageLiquor(e) }}/>
+          onChangeUnderageLiquor={(e) => { changeUnderageLiquor(e) }}
+          onChangeStartDate={(e) => { changeStartDate(e) }}
+          onChangeEndDate={(e) => { changeEndDate(e) }}/>
+
         </div>
       </div>
     );

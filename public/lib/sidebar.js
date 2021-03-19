@@ -23,6 +23,8 @@ function Sidebar(props) {
   var [sexualAssault, setSexualAssault] = useState(true);
   var [prostitution, setProstitution] = useState(true);
   var [underageLiquor, setUnderageLiquor] = useState(true);
+  var [startDate, setStartDate] = useState("2020-01-25");
+  var [endDate, setEndDate] = useState("2021-03-19");
 
   var changeBurglary = setVal => {
     setVal = !burglary;
@@ -83,6 +85,18 @@ function Sidebar(props) {
     setUnderageLiquor(setVal);
     props.onChangeUnderageLiquor(setVal);
   };
+
+  var changeStartDate = setVal => {
+    setStartDate(setVal);
+    props.onChangeStartDate(setVal);
+  };
+
+  var changeEndDate = setVal => {
+    setEndDate(setVal);
+    props.onChangeEndDate(setVal);
+  };
+
+  var sendDates = e => {};
 
   return /*#__PURE__*/React.createElement("div", {
     className: "fullsidebar"
@@ -179,6 +193,8 @@ function Sidebar(props) {
     label: "Start Date",
     type: "date",
     defaultValue: "2020-01-25",
+    onChange: changeStartDate,
+    value: startDate,
     InputLabelProps: {
       shrink: true
     }
@@ -189,6 +205,8 @@ function Sidebar(props) {
     label: "End Date",
     type: "date",
     defaultValue: "2021-03-19",
+    onChange: changeEndDate,
+    value: endDate,
     InputLabelProps: {
       shrink: true
     }

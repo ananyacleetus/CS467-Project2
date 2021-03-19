@@ -17,6 +17,8 @@ function Layout(props) {
   var [sexualAssault, setSexualAssault] = useState(true);
   var [prostitution, setProstitution] = useState(true);
   var [underageLiquor, setUnderageLiquor] = useState(true);
+  var [startDate, setStartDate] = useState("2020-01-25");
+  var [endDate, setEndDate] = useState("2021-03-19");
 
   var changeBurglary = setVal => {
     setVal = !burglary;
@@ -68,6 +70,14 @@ function Layout(props) {
     setUnderageLiquor(setVal);
   };
 
+  var changeStartDate = setVal => {
+    setStartDate(setVal);
+  };
+
+  var changeEndDate = setVal => {
+    setEndDate(setVal);
+  };
+
   return /*#__PURE__*/React.createElement("div", {
     className: "grid-container"
   }, /*#__PURE__*/React.createElement("div", {
@@ -87,7 +97,9 @@ function Layout(props) {
     tresspassing: tresspassing,
     sexualAssault: sexualAssault,
     prostitution: prostitution,
-    underageLiquor: underageLiquor
+    underageLiquor: underageLiquor,
+    startDate: startDate,
+    endDate: endDate
   })), /*#__PURE__*/React.createElement("div", {
     className: "D"
   }, /*#__PURE__*/React.createElement(Sidebar, {
@@ -121,6 +133,12 @@ function Layout(props) {
     },
     onChangeUnderageLiquor: e => {
       changeUnderageLiquor(e);
+    },
+    onChangeStartDate: e => {
+      changeStartDate(e);
+    },
+    onChangeEndDate: e => {
+      changeEndDate(e);
     }
   })));
 }
