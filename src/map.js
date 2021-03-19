@@ -31,7 +31,7 @@ function MapContainer(props) {
   const prostitution = props.prostitution;
   const underageLiquor = props.underageLiquor;
 
-  var circleRadius = 45;
+  var circleRadius = 10;
   var zoomSize = 16;
   var padding = 10;
 
