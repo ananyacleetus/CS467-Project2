@@ -4,12 +4,20 @@ html {
   font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 #map {
   /* position: relative; */
   width: 1200px;
   height: 800px;
   margin: -20% 35%;
-  display: block;
+  /* display: block; */
 }
 
 #fullChart {
@@ -28,8 +36,11 @@ html {
 }
 
 
-.layer, .layer svg {position: absolute;}
-.layer svg {
+.crimeSpots, .crimeSpots svg {
+  position: absolute;
+}
+
+.crimeSpots svg {
 width: 60px;
 height: 60px;
 padding-right: 100px;

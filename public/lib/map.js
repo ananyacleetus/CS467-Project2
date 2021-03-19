@@ -7,17 +7,21 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'; /
 import "..//css/map.css";
 var API_KEY = KEYS.GOOGLE_API_KEY;
 var map;
+var overlayView;
 
 function MapContainer(props) {
   var mapQuery = "UIUC";
   var UIUCLat = 40.1019523;
   var UIUCLong = -88.2271615;
   var pointData = [{
-    lat: 45,
-    long: -89
+    lat: 40.10935,
+    long: -88.2310087
   }, {
-    lat: 39,
-    long: -85
+    lat: 40.1125993,
+    long: -88.2272643
+  }, {
+    lat: 40.1090874,
+    long: -88.2313091
   }]; //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
 
@@ -32,7 +36,7 @@ function MapContainer(props) {
   var prostitution = props.prostitution;
   var underageLiquor = props.underageLiquor;
   var circleRadius = 10;
-  var zoomSize = 16;
+  var zoomSize = 15;
   var padding = 10; // console.log(burglary);
   // <Marker
   //   name={'Current location'} />
@@ -46,39 +50,58 @@ function MapContainer(props) {
   // map = d3.select("#map").node;
   // var map = d3.select("#map");
 
+  window.addEventListener("load", initMap);
+
   function initMap() {
     map = new google.maps.Map(d3.select("#map").node(), {
       zoom: zoomSize,
       center: new google.maps.LatLng(UIUCLat, UIUCLong),
       mapTypeId: google.maps.MapTypeId.TERRAIN
+    }); //
+    // var overlayView = new google.maps.OverlayView({
+    //                 setMap : map
+    //             });
+
+    overlayView = new google.maps.OverlayView({
+      setMap: map
     });
+
+    overlayView.onAdd = function () {
+      console.log("onAdd");
+      var layer = d3.select(this.getPanes().overlayLayer).append("div").attr("class", "crimeSpots");
+
+      overlayView.draw = function () {
+        var projection = this.getProjection();
+        var marker = layer.selectAll("svg").data(pointData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
+        marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke", "#1EA1F2").attr("fill", "#1EA1F2"); // var marker = layer.selectAll(".marker")
+        // .data(pointData)
+        // .each(transform)
+        // .enter()
+        // .append("circle")
+        // .each(transform)
+        // .attr("class", "marker")
+        // .attr("r", circleRadius)
+        // .attr("cx", padding)
+        // .attr("cy", padding)
+        // .attr("stroke", "#1EA1F2")
+        // .attr("fill", "#1EA1F2");
+
+        function transform(d) {
+          d = new google.maps.LatLng(d.lat, d.long); // d = new google.maps.LatLng(40.0, -88.0);
+
+          d = projection.fromLatLngToDivPixel(d);
+          return d3.select(this).style("left", d.x - padding + "px").style("top", d.y - padding + "px");
+        }
+      };
+    };
+
+    overlayView.setMap(map);
   }
 
-  ; //
-  // var overlayView = new google.maps.OverlayView({
-  //                 setMap : map
-  //             });
-
-  var overlayView = new google.maps.OverlayView({
-    setMap: map
-  });
-
-  overlayView.onAdd = function () {
-    var layer = d3.select(this.getPanes().overlayLayer).append("div").attr("class", "crimeSpots");
-
-    overlayView.draw = function () {
-      var projection = this.getProjection();
-      var marker = layer.selectAll("svg").data(pointData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
-      marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke", "#1EA1F2").attr("fill", "#1EA1F2");
-
-      function transform(d) {
-        d = new google.maps.LatLng(d.lat, d.long); // d = new google.maps.LatLng(40.0, -88.0);
-
-        d = projection.fromLatLngToDivPixel(d);
-        return d3.select(this).style("left", d.x - padding + "px").style("top", d.y - padding + "px");
-      }
-    };
-  }; // <Map google={props.google} zoom={16} id="map"
+  ; // overlayView.onRemove = function () {
+  //   d3.select(this.getPanes().overlayLayer).remove(".crimeSpots");
+  // };
+  // <Map google={props.google} zoom={16} id="map"
   //   initialCenter={
   //     {
   //       lat: UIUCLat,
@@ -92,9 +115,7 @@ function MapContainer(props) {
   // </Map>
   // map = google.maps.getMap();
   // map = document.getElementById("#map");
-
-
-  overlayView.setMap(map); // <OverlayView
+  // <OverlayView
   //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
   // </OverlayView>
   // useEffect(() => {

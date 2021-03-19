@@ -9,6 +9,7 @@ import "..//css/map.css";
 
 const API_KEY = KEYS.GOOGLE_API_KEY;
 var map;
+var overlayView;
 
 function MapContainer(props) {
 
@@ -16,7 +17,7 @@ function MapContainer(props) {
   const UIUCLat = 40.1019523;
   const UIUCLong = -88.2271615;
 
-  const pointData = [{lat: 45, long: -89}, {lat: 39, long: -85}];
+  const pointData = [{lat: 40.10935, long: -88.2310087}, {lat: 40.1125993, long: -88.2272643}, {lat: 40.1090874, long: -88.2313091}];
 
   //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
@@ -32,7 +33,7 @@ function MapContainer(props) {
   const underageLiquor = props.underageLiquor;
 
   var circleRadius = 10;
-  var zoomSize = 16;
+  var zoomSize = 15;
   var padding = 10;
 
   // console.log(burglary);
@@ -53,6 +54,10 @@ function MapContainer(props) {
   // map = d3.select("#map").node;
   // var map = d3.select("#map");
 
+
+  window.addEventListener("load", initMap);
+
+
   function initMap() {
 
     map = new google.maps.Map(d3.select("#map").node(), {
@@ -62,7 +67,7 @@ function MapContainer(props) {
     });
 
 
-  };
+
 
   //
   // var overlayView = new google.maps.OverlayView({
@@ -70,11 +75,14 @@ function MapContainer(props) {
   //             });
 
 
-  var overlayView = new google.maps.OverlayView({
+  overlayView = new google.maps.OverlayView({
     setMap: map
   });
 
+
   overlayView.onAdd = function () {
+
+    console.log("onAdd");
 
     var layer = d3.select(this.getPanes().overlayLayer).append("div").attr("class", "crimeSpots");
 
@@ -97,6 +105,22 @@ function MapContainer(props) {
       .attr("stroke", "#1EA1F2")
       .attr("fill", "#1EA1F2");
 
+
+      // var marker = layer.selectAll(".marker")
+      // .data(pointData)
+      // .each(transform)
+      // .enter()
+      // .append("circle")
+      // .each(transform)
+      // .attr("class", "marker")
+      // .attr("r", circleRadius)
+      // .attr("cx", padding)
+      // .attr("cy", padding)
+      // .attr("stroke", "#1EA1F2")
+      // .attr("fill", "#1EA1F2");
+
+
+
       function transform(d) {
         d = new google.maps.LatLng(d.lat, d.long);
         // d = new google.maps.LatLng(40.0, -88.0);
@@ -109,6 +133,14 @@ function MapContainer(props) {
 
 
   };
+
+  overlayView.setMap(map);
+
+    };
+
+  // overlayView.onRemove = function () {
+  //   d3.select(this.getPanes().overlayLayer).remove(".crimeSpots");
+  // };
 
   // <Map google={props.google} zoom={16} id="map"
   //   initialCenter={
@@ -126,9 +158,6 @@ function MapContainer(props) {
   // map = google.maps.getMap();
 
   // map = document.getElementById("#map");
-
-  overlayView.setMap(map);
-
   // <OverlayView
   //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
   // </OverlayView>
