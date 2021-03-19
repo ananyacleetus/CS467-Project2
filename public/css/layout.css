@@ -9,15 +9,14 @@ html {
 
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 7fr;
   gap: 0px 0px;
   /* position: fixed;
   height: 100%;
   overflow-y: auto; */
   grid-template-areas:
     "A D"
-    "B D"
-    "C D";
+    "B D";
 }
 
 .A {
@@ -26,6 +25,7 @@ html {
 
 .B {
   grid-area: B;
+  margin-top: -20px !important;
 }
 
 .C {

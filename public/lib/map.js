@@ -72,8 +72,8 @@ function MapContainer(props) {
       marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke", "#1EA1F2").attr("fill", "#1EA1F2");
 
       function transform(d) {
-        // d = new google.maps.LatLng(d.value[1], d.value[0]);
-        d = new google.maps.LatLng(40.0, -88.0);
+        d = new google.maps.LatLng(d.lat, d.long); // d = new google.maps.LatLng(40.0, -88.0);
+
         d = projection.fromLatLngToDivPixel(d);
         return d3.select(this).style("left", d.x - padding + "px").style("top", d.y - padding + "px");
       }
