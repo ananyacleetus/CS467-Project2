@@ -32,8 +32,8 @@ p {
 a {
   text-decoration: none;
   padding-bottom: 2px;
-  border-bottom: 1px solid #52C11F;
-  color: #52C11F;
+  border-bottom: 1px solid #664AFF;
+  color: #664AFF;
   transition: border-color 0.2s;
   font-size: 30px;
   border-color: transparent;
@@ -42,7 +42,7 @@ a {
 
 a:hover {
   border-color: transparent;
-  color: #1EA1F2;
+  color: #FF4747;
 
 }
 
@@ -92,7 +92,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 4em;
-  font-weight: 100;
+  font-weight: 500;
+  color: #664AFF;
 }
 
 h2 {
@@ -151,8 +152,8 @@ h6 {
 }
 .alpha .btn-primary {
   box-shadow: 0 3px 0 0 #367f14, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
-  background-color: #52C11F;
-  background-image: linear-gradient(-45deg, #52C11F, #7ccc14);
+  background-color: #664AFF;
+  background-image: linear-gradient(-45deg, #664AFF, #7ccc14);
   color: #E6EAEF;
 }
 .alpha .btn-primary:hover {
@@ -295,14 +296,14 @@ h6 {
   opacity: 0.6;
 }
 .beta .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   background-image: linear-gradient(0deg, #3f9518, #6ade35);
   color: #E6EAEF;
   border-color: #3f9518;
   text-shadow: 0 1px 1px #2d6911;
 }
 .beta .btn-primary:hover {
-  background-image: linear-gradient(0deg, #3f9518, #52C11F);
+  background-image: linear-gradient(0deg, #3f9518, #664AFF);
 }
 .beta .btn-primary:active {
   background-color: #49ab1b;
@@ -481,13 +482,13 @@ h6 {
 }
 .gamma .btn-primary {
   color: #E6EAEF;
-  background-color: #52C11F;
-  background-image: linear-gradient(0deg, #52C11F, #59d322);
+  background-color: #664AFF;
+  background-image: linear-gradient(0deg, #664AFF, #59d322);
   border-color: #3f9518;
 }
 .gamma .btn-primary:hover {
   background-color: #4baf1c;
-  background-image: linear-gradient(0deg, #4baf1c, #52C11F);
+  background-image: linear-gradient(0deg, #4baf1c, #664AFF);
 }
 .gamma .btn-primary:active {
   background-color: #47a71b;
@@ -633,8 +634,8 @@ h6 {
   transition: box-shadow 0.1s;
 }
 .delta .btn-primary {
-  background-color: #52C11F;
-  background-image: linear-gradient(-45deg, #52C11F, #7ccc14);
+  background-color: #664AFF;
+  background-image: linear-gradient(-45deg, #664AFF, #7ccc14);
   color: #E6EAEF;
   border-top-color: #8ae660;
   border-left-color: #5ddb23;
@@ -837,8 +838,8 @@ h6 {
   transform: translateY(2px);
 }
 .epsilon .btn-primary {
-  background-color: #52C11F;
-  background-image: linear-gradient(0deg, #439e19, #52C11F, #5bd723);
+  background-color: #664AFF;
+  background-image: linear-gradient(0deg, #439e19, #664AFF, #5bd723);
   color: #E6EAEF;
   box-shadow: 0 2px 0 0 #2d6911, 0 1.31em 2em 0 rgba(255, 255, 255, 0) inset, 0 2px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 2px 3px 1px rgba(0, 0, 0, 0.4), 0 0 12px 1px rgba(82, 193, 31, 0.5), 0 2px 1px -1px rgba(0, 0, 0, 0) inset;
 }
@@ -1002,7 +1003,7 @@ h6 {
 }
 .zeta .btn-primary {
   color: #E6EAEF;
-  background-color: #52C11F;
+  background-color: #664AFF;
   background-image: linear-gradient(0deg, #3f9518, #56ca20);
   border-color: #2d6911;
 }
@@ -1120,7 +1121,7 @@ h6 {
   background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0));
 }
 .eta .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #E6EAEF;
   border-color: #439e19;
   border-bottom-color: #347b14;
@@ -1279,8 +1280,8 @@ h6 {
   transition: transform 0.2s, background-color 0.2s;
 }
 .theta .btn-primary {
-  color: #52C11F;
-  border-color: #52C11F;
+  color: #664AFF;
+  border-color: #664AFF;
 }
 .theta .btn-primary:hover {
   transform: translate(0.2em, -0.1em);
@@ -1502,12 +1503,12 @@ h6 {
   transition: transform 0.8s, opacity 0.3s;
 }
 .iota .btn-primary {
-  color: #52C11F;
-  border-color: #52C11F;
+  color: #664AFF;
+  border-color: #664AFF;
 }
 .iota .btn-primary:hover {
   color: #E6EAEF;
-  background-color: #52C11F;
+  background-color: #664AFF;
 }
 .iota .btn-primary:active {
   background-color: #4cb41d;
@@ -1516,7 +1517,7 @@ h6 {
   background-color: #4cb41d;
 }
 .iota .btn-primary:after {
-  background-color: #52C11F;
+  background-color: #664AFF;
 }
 .iota .btn-secondary {
   color: #0B44EF;
@@ -1668,7 +1669,7 @@ h6 {
   transform: scale(0.98);
 }
 .kappa .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #307212;
   box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.5), inset 0 -2px 5px -1px rgba(54, 127, 20, 0.6), 0 -3px 12px -1px rgba(122, 226, 74, 0.6), inset 0 3px 4px -1px rgba(122, 226, 74, 0.3), inset 0 0 4px 1px rgba(138, 230, 96, 0.8), inset 0 1.1em 1.4em 0 rgba(122, 226, 74, 0.5);
 }
@@ -1770,7 +1771,7 @@ h6 {
   box-shadow: 0 1px 4px -1px rgba(255, 255, 255, 0.1) inset, 0 6px 12px 1px rgba(0, 0, 0, 0.2), 0 6px 2px 1px rgba(0, 0, 0, 0.1), 6px 6px 12px 1px rgba(0, 0, 0, 0.05), -6px 6px 12px 1px rgba(0, 0, 0, 0.05), 4px 4px 2px 1px rgba(0, 0, 0, 0.07), -4px 4px 2px 1px rgba(0, 0, 0, 0.07), 6px 0 2px 1px rgba(255, 255, 255, 0.4), -6px 0 2px 1px rgba(255, 255, 255, 0.4), 6px 0 2px 1px rgba(0, 0, 0, 0.1), -6px 0 2px 1px rgba(0, 0, 0, 0.1), 4px -4px 2px 1px rgba(255, 255, 255, 0.8), -4px -4px 2px 1px rgba(255, 255, 255, 0.8), 0 -6px 12px 1px rgba(255, 255, 255, 0.9), 0 -6px 2px 1px rgba(255, 255, 255, 0.9), 0 0.6em 1em 0 rgba(0, 0, 0, 0.15) inset, 0 -0.6em 1em rgba(255, 255, 255, 0.15) inset;
 }
 .lambda .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #E6EAEF;
   border-color: #439e19;
 }
@@ -1882,8 +1883,8 @@ h6 {
   opacity: 0.6;
 }
 .mu .btn-primary {
-  color: #52C11F;
-  border-color: #52C11F;
+  color: #664AFF;
+  border-color: #664AFF;
 }
 .mu .btn-secondary {
   color: #0B44EF;
@@ -1939,11 +1940,11 @@ h6 {
   opacity: 0.6;
 }
 .nu .btn-primary {
-  color: #52C11F;
-  border-color: #52C11F;
+  color: #664AFF;
+  border-color: #664AFF;
 }
 .nu .btn-primary:hover {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #E6EAEF;
   padding-left: 3.5em;
   padding-right: 3.5em;
@@ -2107,7 +2108,7 @@ h6 {
   z-index: -1;
 }
 .xi .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #bbf0a2;
 }
 .xi .btn-primary:hover {
@@ -2224,16 +2225,16 @@ h6 {
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1) inset, 0 2.2em 1em -1em rgba(255, 255, 255, 0.05) inset, 0 1.5em 1em -1em rgba(255, 255, 255, 0) inset, 0 0 4px 1px rgba(0, 0, 0, 0.2) inset;
 }
 .omicron .btn-primary {
-  background-image: radial-gradient(ellipse at bottom center, #4ffa00, #52C11F);
-  background-color: #52C11F;
+  background-image: radial-gradient(ellipse at bottom center, #4ffa00, #664AFF);
+  background-color: #664AFF;
   color: rgba(35, 83, 13, 0.8);
   border-color: #3f9518;
 }
 .omicron .btn-primary:hover {
-  background-image: radial-gradient(ellipse at bottom center, #65ff1e, #52C11F);
+  background-image: radial-gradient(ellipse at bottom center, #65ff1e, #664AFF);
 }
 .omicron .btn-primary:active {
-  background-image: radial-gradient(ellipse at bottom center, #3ec700, #52C11F);
+  background-image: radial-gradient(ellipse at bottom center, #3ec700, #664AFF);
 }
 .omicron .btn-secondary {
   background-image: radial-gradient(ellipse at bottom center, #154fff, #0B44EF);
@@ -2356,7 +2357,7 @@ h6 {
   transition-duration: 0.05s;
 }
 .pi .btn-primary {
-  color: #52C11F;
+  color: #664AFF;
 }
 .pi .btn-secondary {
   color: #0B44EF;
@@ -2429,7 +2430,7 @@ h6 {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.1), 0 2px 7px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1) inset;
 }
 .rho .btn-primary:before {
-  background-color: #52C11F;
+  background-color: #664AFF;
 }
 .rho .btn-secondary:active {
   background-color: #bfc2d0;
@@ -2518,7 +2519,7 @@ h6 {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 .sigma .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #307212;
   border-color: #3c8c17;
   box-shadow: 0 -4px 12px -1px rgba(82, 193, 31, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.35), 0 2px 6px 1px rgba(0, 0, 0, 0.3), 0 10px 6px -2px rgba(0, 0, 0, 0.25), 0 1px 0 0 rgba(255, 255, 255, 0.2) inset, 0 -2.5em 2em -1.5em rgba(0, 0, 0, 0.12) inset;
@@ -2650,7 +2651,7 @@ h6 {
   transition-duration: 0.1s;
 }
 .tau .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #E6EAEF;
 }
 .tau .btn-primary:hover {
@@ -2761,7 +2762,7 @@ h6 {
   transform: translateY(1px);
 }
 .upsilon .btn-primary {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #E6EAEF;
 }
 .upsilon .btn-primary:hover {
@@ -2874,17 +2875,17 @@ h6 {
   transform: translate(4px, 4px);
 }
 .phi .btn-primary {
-  color: #52C11F;
-  border-color: #52C11F;
-  box-shadow: 6px 0 0 0 #52C11F, 6px 6px 0 0 #52C11F, 0 6px 0 0 #52C11F;
+  color: #664AFF;
+  border-color: #664AFF;
+  box-shadow: 6px 0 0 0 #664AFF, 6px 6px 0 0 #664AFF, 0 6px 0 0 #664AFF;
 }
 .phi .btn-primary:hover {
-  box-shadow: 8px 0 0 0 #52C11F, 8px 8px 0 0 #52C11F, 0 8px 0 0 #52C11F;
+  box-shadow: 8px 0 0 0 #664AFF, 8px 8px 0 0 #664AFF, 0 8px 0 0 #664AFF;
 }
 .phi .btn-primary:active {
-  background-color: #52C11F;
+  background-color: #664AFF;
   color: #E6EAEF;
-  box-shadow: 2px 0 0 0 #52C11F, 2px 2px 0 0 #52C11F, 0 2px 0 0 #52C11F;
+  box-shadow: 2px 0 0 0 #664AFF, 2px 2px 0 0 #664AFF, 0 2px 0 0 #664AFF;
 }
 .phi .btn-secondary {
   color: #0B44EF;
@@ -3041,17 +3042,17 @@ h6 {
   transition: transform cubic-bezier(0.645, 0.045, 0.355, 1) 0.4s;
 }
 .chi .btn-primary {
-  color: #52C11F;
-  border-color: #52C11F;
+  color: #664AFF;
+  border-color: #664AFF;
 }
 .chi .btn-primary:hover {
   color: #E6EAEF;
 }
 .chi .btn-primary:before {
-  background-color: #52C11F;
+  background-color: #664AFF;
 }
 .chi .btn-primary:after {
-  border-color: #52C11F;
+  border-color: #664AFF;
 }
 .chi .btn-secondary {
   color: #0B44EF;
@@ -3200,7 +3201,7 @@ h6 {
   transition: opacity 0.25s;
 }
 .psi .btn-primary {
-  color: #52C11F;
+  color: #664AFF;
   border-color: #0f1013;
   text-shadow: 0 0 16px rgba(82, 193, 31, 0.5), 0 -1px 0 rgba(0, 0, 0, 0.9);
 }
@@ -3348,7 +3349,7 @@ h6 {
   color: #E6EAEF;
 }
 .omega .btn-primary:before {
-  background-color: #52C11F;
+  background-color: #664AFF;
 }
 .omega .btn-secondary:hover {
   color: #E6EAEF;
