@@ -8,7 +8,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import "..//css/map.css";
 
 const API_KEY = KEYS.GOOGLE_API_KEY;
-// var map;
+var map;
 
 function MapContainer(props) {
 
@@ -31,7 +31,9 @@ function MapContainer(props) {
   const prostitution = props.prostitution;
   const underageLiquor = props.underageLiquor;
 
-  var circleRadius = 4;
+  var circleRadius = 10;
+  var zoomSize = 16;
+  var padding = 10;
 
   // console.log(burglary);
 
@@ -39,7 +41,7 @@ function MapContainer(props) {
   //   name={'Current location'} />
 
 
-const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block" };
+// const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block"};
 
 // var map = new google.maps.Map(d3.select("#map").node(), {
 //   zoom: 16,
@@ -49,20 +51,35 @@ const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin
 // });
 
 // map = d3.select("#map").node;
-var map = d3.select("#map");
+// var map = d3.select("#map");
+
+function initMap() {
+
+  map = new google.maps.Map(d3.select("#map").node(), {
+  zoom: zoomSize,
+  center: new google.maps.LatLng(UIUCLat, UIUCLong),
+  mapTypeId: google.maps.MapTypeId.TERRAIN,
+});
 
 
-var overlayView = new google.maps.OverlayView({
-                setMap : map
-            });
+};
 
+//
+// var overlayView = new google.maps.OverlayView({
+//                 setMap : map
+//             });
+
+
+var overlayView = new google.maps.OverlayView();
 
 overlayView.onAdd = function () {
 
-    var layer = d3.select(this.getPanes.overlayMouseTarget).append("div").attr("class", "crimeSpots");
+  var panes = this.getPanes();
+
+    var layer = d3.select(panes.overlayLayer).append("div").attr("class", "crimeSpots");
 
     overlayView.draw = function () {
-      var projection = this.getProjection(), padding = 10;
+      var projection = this.getProjection();
 
       var marker = layer.selectAll("svg")
                     .data(pointData)
@@ -81,7 +98,8 @@ overlayView.onAdd = function () {
                    .attr("fill", "#1EA1F2");
 
                    function transform(d) {
-        d = new google.maps.LatLng(d.value[1], d.value[0]);
+        // d = new google.maps.LatLng(d.value[1], d.value[0]);
+        d = new google.maps.LatLng(40.0, -88.0);
         d = projection.fromLatLngToDivPixel(d);
         return d3.select(this)
             .style("left", (d.x - padding) + "px")
@@ -92,23 +110,40 @@ overlayView.onAdd = function () {
 
 };
 
-// map = d3.select("#map");
+// <Map google={props.google} zoom={16} id="map"
+//   initialCenter={
+//     {
+//       lat: UIUCLat,
+//       lng: UIUCLong
+//     }
+//   }
+//   style={mapStyle}>
+//   {
+//
+// }
+// </Map>
 
-// overlayView.setMap(this.map);
+// map = google.maps.getMap();
+
+// map = document.getElementById("#map");
+
+// overlayView.setMap(map);
+
+// <OverlayView
+//  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
+// </OverlayView>
+
+
+
+useEffect(() => {
+      initMap();
+  });
 
     return (
 
       <div id="fullChart">
+      <div id="map"></div>
 
-        <Map google={props.google} zoom={16} id="map"
-          initialCenter={
-            {
-              lat: UIUCLat,
-              lng: UIUCLong
-            }
-          }
-          style={mapStyle}>
-        </Map>
       </div>
 
     );

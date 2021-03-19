@@ -4,6 +4,14 @@ html {
   font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
 }
 
+#map {
+  position: relative;
+  width: 1200px;
+  height: 1000px;
+  margin: -3.5% 3.5%;
+  display: block;
+}
+
 #fullChart {
   width: 10vw;
   height: 120vh;
