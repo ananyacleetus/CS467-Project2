@@ -57,7 +57,7 @@ function MapContainer(props) {
   var fillColors = ["#FFADAD", "#FFD6A5", "#FFEE99", "#CAFFBF", "#9BF6FF", "#A0C4FF", "#BDB2FF", "#DEBCFF", "#FFC6FF", "#DDDDD1"];
   var outlineColors = ["#FF4747", "#FFA93F", "#FFE24E", "#6FFF52", "#37EEFF", "#3B86FF", "#664AFF", "#B352FF", "#FF5AFF", "#B1B1A8"];
   var crimeTypes = ["burglary", "idUse", "theftUnder", "theftOver", "harrassment", "propertyDamage", "tresspassing", "sexualAssault", "prostitution", "underageLiquor"];
-  var pointData = [{
+  var fakeData = [{
     lat: 40.10935,
     long: -88.2310087,
     crime: "harrassment"
@@ -66,8 +66,32 @@ function MapContainer(props) {
     long: -88.2272643,
     crime: "prostitution"
   }, {
+    lat: 40.109223,
+    long: -88.229840,
+    crime: "prostitution"
+  }, {
+    lat: 40.118330,
+    long: -88.227558,
+    crime: "sexualAssault"
+  }, {
+    lat: 40.114890,
+    long: -88.225889,
+    crime: "underageLiquor"
+  }, {
+    lat: 40.098889,
+    long: -88.2208739,
+    crime: "idUse"
+  }, {
+    lat: 40.100002,
+    long: -88.219933,
+    crime: "underageLiquor"
+  }, {
+    lat: 40.110298,
+    long: -88.232009,
+    crime: "tresspassing"
+  }, {
     lat: 40.1090874,
-    long: -88.2313091,
+    long: -88.230003,
     crime: "theftOver"
   }]; //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
@@ -82,9 +106,10 @@ function MapContainer(props) {
   var sexualAssault = props.sexualAssault;
   var prostitution = props.prostitution;
   var underageLiquor = props.underageLiquor;
-  var circleRadius = 10;
+  var circleRadius = 15;
+  var strokeWidth = 3;
   var zoomSize = 15;
-  var padding = 10; // console.log(burglary);
+  var padding = 25; // console.log(burglary);
   // <Marker
   //   name={'Current location'} />
   // const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block"};
@@ -119,8 +144,8 @@ function MapContainer(props) {
 
       overlayView.draw = function () {
         var projection = this.getProjection();
-        var marker = layer.selectAll("svg").data(pointData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
-        marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke", function (d) {
+        var marker = layer.selectAll("svg").data(fakeData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
+        marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke-width", strokeWidth).attr("stroke", function (d) {
           var crimeIdx = crimeTypes.indexOf(d.crime);
           return outlineColors[crimeIdx];
         }).attr("fill", function (d) {

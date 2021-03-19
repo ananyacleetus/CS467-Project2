@@ -71,9 +71,16 @@ function MapContainer(props) {
   ];
 
 
-
-
-  const pointData = [{lat: 40.10935, long: -88.2310087, crime: "harrassment"}, {lat: 40.1125993, long: -88.2272643, crime: "prostitution"}, {lat: 40.1090874, long: -88.2313091, crime: "theftOver"}];
+  const fakeData = [
+    {lat: 40.10935, long: -88.2310087, crime: "harrassment"},
+    {lat: 40.1125993, long: -88.2272643, crime: "prostitution"},
+    {lat: 40.109223, long: -88.229840, crime: "prostitution"},
+    {lat: 40.118330, long: -88.227558, crime: "sexualAssault"},
+    {lat: 40.114890, long: -88.225889, crime: "underageLiquor"},
+    {lat: 40.098889, long: -88.2208739, crime: "idUse"},
+    {lat: 40.100002, long: -88.219933, crime: "underageLiquor"},
+    {lat: 40.110298, long: -88.232009, crime: "tresspassing"},
+    {lat: 40.1090874, long: -88.230003, crime: "theftOver"}];
 
   //These props are sent from the callback functions from the sidebar to the main layout to the map
   //They can be used to indicate which crime types should be displayed
@@ -88,9 +95,10 @@ function MapContainer(props) {
   const prostitution = props.prostitution;
   const underageLiquor = props.underageLiquor;
 
-  var circleRadius = 10;
+  var circleRadius = 15;
+  var strokeWidth = 3;
   var zoomSize = 15;
-  var padding = 10;
+  var padding = 25;
 
   // console.log(burglary);
 
@@ -146,7 +154,7 @@ function MapContainer(props) {
       var projection = this.getProjection();
 
       var marker = layer.selectAll("svg")
-      .data(pointData)
+      .data(fakeData)
       .each(transform)
       .enter()
       .append("svg")
@@ -158,6 +166,7 @@ function MapContainer(props) {
       .attr("r", circleRadius)
       .attr("cx", padding)
       .attr("cy", padding)
+      .attr("stroke-width", strokeWidth)
       .attr("stroke", function(d) {
         var crimeIdx = crimeTypes.indexOf(d.crime);
         return outlineColors[crimeIdx];
