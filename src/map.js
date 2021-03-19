@@ -13,6 +13,15 @@ var overlayView;
 
 function MapContainer(props) {
 
+  // TODO: 
+  // - Investigate Google Maps event listeners for mouseover/mouseout events and how to get data from them for the tooltip (regular tooltip won't work with gmaps)
+  // - Import police crime data and create a hardcoded array of each possible location's coordinates (we can then filter the data to show all crime at that location displayed at that coordinate)
+  // - Create intro/title page explaining motivation and ethical issues and tools we used
+  // - Fix projection (scaling from coordinates to pixels) so the points occur closer to the right spots on the map (can be done after police data is imported)
+  // - Scale circle radius to change based on summed number of crimes of the same type in one location
+  // - Scale circle radius depending on Zoom value?
+  // - Date filter??
+
   const mapQuery = "UIUC";
   const UIUCLat = 40.1019523;
   const UIUCLong = -88.2271615;
@@ -199,7 +208,7 @@ function MapContainer(props) {
           });
 
 
-          //TODO: INVESTIGATE GOOGLE MOUSEOVER EVENT LISTENER AND HOW TO ACCESS DATA POINTS 
+          //TODO: INVESTIGATE GOOGLE MOUSEOVER EVENT LISTENER AND HOW TO ACCESS DATA POINTS
           // google.maps.event.addListener(marker, 'mouseover', function () {
           //   var point = fromLatLngToPoint(marker.getPosition(), map);
           //   $('#marker-tooltip').html(marker.tooltipContent + '<br>Pixel coordinates: ' + point.x + ', ' + point.y).css({
