@@ -31,7 +31,7 @@ function MapContainer(props) {
   var sexualAssault = props.sexualAssault;
   var prostitution = props.prostitution;
   var underageLiquor = props.underageLiquor;
-  var circleRadius = 10;
+  var circleRadius = 45;
   var zoomSize = 16;
   var padding = 10; // console.log(burglary);
   // <Marker
@@ -59,11 +59,12 @@ function MapContainer(props) {
   //                 setMap : map
   //             });
 
-  var overlayView = new google.maps.OverlayView();
+  var overlayView = new google.maps.OverlayView({
+    setMap: map
+  });
 
   overlayView.onAdd = function () {
-    var panes = this.getPanes();
-    var layer = d3.select(panes.overlayLayer).append("div").attr("class", "crimeSpots");
+    var layer = d3.select(this.getPanes().overlayLayer).append("div").attr("class", "crimeSpots");
 
     overlayView.draw = function () {
       var projection = this.getProjection();
@@ -91,11 +92,11 @@ function MapContainer(props) {
   // </Map>
   // map = google.maps.getMap();
   // map = document.getElementById("#map");
-  // overlayView.setMap(map);
-  // <OverlayView
+
+
+  overlayView.setMap(map); // <OverlayView
   //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
   // </OverlayView>
-
 
   useEffect(() => {
     initMap();
