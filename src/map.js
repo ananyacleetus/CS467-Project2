@@ -39,9 +39,9 @@ function MapContainer(props) {
     "#9BF6FF",
     "#A0C4FF",
     "#BDB2FF",
-     "#DEBCFF",
-     "#FFC6FF",
-     "#DDDDD1",
+    "#DEBCFF",
+    "#FFC6FF",
+    "#DDDDD1",
   ];
 
   const outlineColors = [
@@ -62,7 +62,7 @@ function MapContainer(props) {
     "idUse",
     "theftUnder",
     "theftOver",
-   "harrassment",
+    "harrassment",
     "propertyDamage",
     "tresspassing",
     "sexualAssault",
@@ -82,179 +82,216 @@ function MapContainer(props) {
     {lat: 40.110298, long: -88.232009, crime: "tresspassing"},
     {lat: 40.1090874, long: -88.230003, crime: "theftOver"}];
 
-  //These props are sent from the callback functions from the sidebar to the main layout to the map
-  //They can be used to indicate which crime types should be displayed
-  const burglary = props.burglary;
-  const idUse = props.idUse;
-  const theftUnder = props.theftUnder;
-  const theftOver = props.theftOver;
-  const harrassment = props.harrassment;
-  const propertyDamage = props.propertyDamage;
-  const tresspassing = props.tresspassing;
-  const sexualAssault = props.sexualAssault;
-  const prostitution = props.prostitution;
-  const underageLiquor = props.underageLiquor;
+    //These props are sent from the callback functions from the sidebar to the main layout to the map
+    //They can be used to indicate which crime types should be displayed
+    const burglary = props.burglary;
+    const idUse = props.idUse;
+    const theftUnder = props.theftUnder;
+    const theftOver = props.theftOver;
+    const harrassment = props.harrassment;
+    const propertyDamage = props.propertyDamage;
+    const tresspassing = props.tresspassing;
+    const sexualAssault = props.sexualAssault;
+    const prostitution = props.prostitution;
+    const underageLiquor = props.underageLiquor;
 
-  var circleRadius = 15;
-  var strokeWidth = 3;
-  var zoomSize = 15;
-  var padding = 25;
+    var circleRadius = 15;
+    var strokeWidth = 3;
+    var zoomSize = 15;
+    var padding = 25;
 
-  // console.log(burglary);
+    // console.log(burglary);
 
-  // <Marker
-  //   name={'Current location'} />
-
-
-  // const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block"};
-
-  // var map = new google.maps.Map(d3.select("#map").node(), {
-  //   zoom: 16,
-  //   center: new google.maps.LatLng(UIUCLat, UIUCLong),
-  //   mapTypeId: google.maps.MapTypeId.TERRAIN,
-  //   style: mapStyle
-  // });
-
-  // map = d3.select("#map").node;
-  // var map = d3.select("#map");
+    // <Marker
+    //   name={'Current location'} />
 
 
-  window.addEventListener("load", initMap);
+    // const mapStyle={ position: "relative", width: "1200px", height: "1000px", margin: "-3.5% 3.5%", display: "block"};
+
+    // var map = new google.maps.Map(d3.select("#map").node(), {
+    //   zoom: 16,
+    //   center: new google.maps.LatLng(UIUCLat, UIUCLong),
+    //   mapTypeId: google.maps.MapTypeId.TERRAIN,
+    //   style: mapStyle
+    // });
+
+    // map = d3.select("#map").node;
+    // var map = d3.select("#map");
 
 
-  function initMap() {
-
-    map = new google.maps.Map(d3.select("#map").node(), {
-      zoom: zoomSize,
-      center: new google.maps.LatLng(UIUCLat, UIUCLong),
-      mapTypeId: google.maps.MapTypeId.TERRAIN,
-    });
+    window.addEventListener("load", initMap);
 
 
+    function initMap() {
 
-
-  //
-  // var overlayView = new google.maps.OverlayView({
-  //                 setMap : map
-  //             });
-
-
-  overlayView = new google.maps.OverlayView({
-    setMap: map
-  });
-
-
-  overlayView.onAdd = function () {
-
-    console.log("onAdd");
-
-    var layer = d3.select(this.getPanes().overlayLayer).append("div").attr("class", "crimeSpots");
-
-    overlayView.draw = function () {
-      var projection = this.getProjection();
-
-      var marker = layer.selectAll("svg")
-      .data(fakeData)
-      .each(transform)
-      .enter()
-      .append("svg")
-      .each(transform)
-      .attr("class", "marker");
-
-
-      marker.append("circle")
-      .attr("r", circleRadius)
-      .attr("cx", padding)
-      .attr("cy", padding)
-      .attr("stroke-width", strokeWidth)
-      .attr("stroke", function(d) {
-        var crimeIdx = crimeTypes.indexOf(d.crime);
-        return outlineColors[crimeIdx];
-      })
-      .attr("fill", function(d) {
-        var crimeIdx = crimeTypes.indexOf(d.crime);
-        return fillColors[crimeIdx];
+      map = new google.maps.Map(d3.select("#map").node(), {
+        zoom: zoomSize,
+        center: new google.maps.LatLng(UIUCLat, UIUCLong),
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
       });
 
 
-      // var marker = layer.selectAll(".marker")
-      // .data(pointData)
-      // .each(transform)
-      // .enter()
-      // .append("circle")
-      // .each(transform)
-      // .attr("class", "marker")
-      // .attr("r", circleRadius)
-      // .attr("cx", padding)
-      // .attr("cy", padding)
-      // .attr("stroke", "#1EA1F2")
-      // .attr("fill", "#1EA1F2");
+
+
+      //
+      // var overlayView = new google.maps.OverlayView({
+      //                 setMap : map
+      //             });
+
+
+      overlayView = new google.maps.OverlayView({
+        setMap: map
+      });
+
+
+      overlayView.onAdd = function () {
+
+        console.log("onAdd");
+
+        var layer = d3.select(this.getPanes().overlayLayer).append("div").attr("class", "crimeSpots");
+
+        overlayView.draw = function () {
+          var projection = this.getProjection();
+
+          const tooltip = d3.select("#tooltip");
+
+          var marker = layer.selectAll("svg")
+          .data(fakeData)
+          .each(transform)
+          .enter()
+          .append("svg")
+          .each(transform)
+          .attr("class", "marker");
+
+
+          marker.append("circle")
+          .attr("r", circleRadius)
+          .attr("cx", padding)
+          .attr("cy", padding)
+          .attr("stroke-width", strokeWidth)
+          .attr("stroke", function(d) {
+            var crimeIdx = crimeTypes.indexOf(d.crime);
+            return outlineColors[crimeIdx];
+          })
+          .attr("fill", function(d) {
+            var crimeIdx = crimeTypes.indexOf(d.crime);
+            return fillColors[crimeIdx];
+          })
+
+          .on("mouseover", (mouseEvent, d) => {
+            // Runs when the mouse enters a dot.  d is the corresponding data point.
+            tooltip.style("opacity", 1);
+            tooltip.text("Crime:" + d.crime);
+          })
+
+          .on("mousemove", (mouseEvent, d) => {
+            /* Runs when mouse moves inside a dot */
+            // var leftOffset = d3.pointer(mouseEvent)[0] + 3
+            // var leftOffset = dateScale((d.date)) + 3;
+            // tooltip.style("left", leftOffset + "px");
+            //
+            // var topOffset = d3.pointer(mouseEvent)[1] + 3
+            // var topOffset = priceScale(parseFloat(d.close)) + PADDING.TOP + 3;
+            // tooltip.style("top", topOffset + "px");
+          })
+          .on("mouseout", (mouseEvent, d) => {
+            tooltip.style("opacity", 0);
+          });
+
+
+          //TODO: INVESTIGATE GOOGLE MOUSEOVER EVENT LISTENER AND HOW TO ACCESS DATA POINTS 
+          // google.maps.event.addListener(marker, 'mouseover', function () {
+          //   var point = fromLatLngToPoint(marker.getPosition(), map);
+          //   $('#marker-tooltip').html(marker.tooltipContent + '<br>Pixel coordinates: ' + point.x + ', ' + point.y).css({
+          //     'left': point.x,
+          //     'top': point.y
+          //   }).show();
+          // });
+          //
+          // google.maps.event.addListener(marker, 'mouseout', function () {
+          //   $('#marker-tooltip').hide();
+          // });
+
+
+          // var marker = layer.selectAll(".marker")
+          // .data(pointData)
+          // .each(transform)
+          // .enter()
+          // .append("circle")
+          // .each(transform)
+          // .attr("class", "marker")
+          // .attr("r", circleRadius)
+          // .attr("cx", padding)
+          // .attr("cy", padding)
+          // .attr("stroke", "#1EA1F2")
+          // .attr("fill", "#1EA1F2");
 
 
 
-      function transform(d) {
-        d = new google.maps.LatLng(d.lat, d.long);
-        // d = new google.maps.LatLng(40.0, -88.0);
-        d = projection.fromLatLngToDivPixel(d);
-        return d3.select(this)
-        .style("left", (d.x - padding) + "px")
-        .style("top", (d.y - padding) + "px");
-      }
+          function transform(d) {
+            d = new google.maps.LatLng(d.lat, d.long);
+            // d = new google.maps.LatLng(40.0, -88.0);
+            d = projection.fromLatLngToDivPixel(d);
+            return d3.select(this)
+            .style("left", (d.x - padding) + "px")
+            .style("top", (d.y - padding) + "px");
+          }
+        };
+
+
+      };
+
+      overlayView.setMap(map);
+
     };
 
+    // overlayView.onRemove = function () {
+    //   d3.select(this.getPanes().overlayLayer).remove(".crimeSpots");
+    // };
 
-  };
+    // <Map google={props.google} zoom={16} id="map"
+    //   initialCenter={
+    //     {
+    //       lat: UIUCLat,
+    //       lng: UIUCLong
+    //     }
+    //   }
+    //   style={mapStyle}>
+    //   {
+    //
+    // }
+    // </Map>
 
-  overlayView.setMap(map);
+    // map = google.maps.getMap();
 
-    };
-
-  // overlayView.onRemove = function () {
-  //   d3.select(this.getPanes().overlayLayer).remove(".crimeSpots");
-  // };
-
-  // <Map google={props.google} zoom={16} id="map"
-  //   initialCenter={
-  //     {
-  //       lat: UIUCLat,
-  //       lng: UIUCLong
-  //     }
-  //   }
-  //   style={mapStyle}>
-  //   {
-  //
-  // }
-  // </Map>
-
-  // map = google.maps.getMap();
-
-  // map = document.getElementById("#map");
-  // <OverlayView
-  //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-  // </OverlayView>
+    // map = document.getElementById("#map");
+    // <OverlayView
+    //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
+    // </OverlayView>
 
 
 
-  // useEffect(() => {
-  //   initMap();
-  // });
+    // useEffect(() => {
+    //   initMap();
+    // });
 
 
-  useEffect(() => {
-    initMap();
-}, [props]);
+    useEffect(() => {
+      initMap();
+    }, [props]);
 
-  return (
+    return (
 
-    <div id="fullChart">
-      <div id="map"></div>
+      <div id="fullChart">
+        <div id="tooltip" className="tooltip" style={{ "opacity": 0 }}>Hover over a point to start!</div>
+        <div id="map"></div>
 
-    </div>
+      </div>
 
-  );
+    );
 
-}
+  }
 
-export default GoogleApiWrapper({
-  apiKey: API_KEY
-})(MapContainer)
+  export default GoogleApiWrapper({
+    apiKey: API_KEY
+  })(MapContainer)

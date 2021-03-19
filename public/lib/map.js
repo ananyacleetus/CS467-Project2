@@ -144,6 +144,7 @@ function MapContainer(props) {
 
       overlayView.draw = function () {
         var projection = this.getProjection();
+        var tooltip = d3.select("#tooltip");
         var marker = layer.selectAll("svg").data(fakeData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
         marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke-width", strokeWidth).attr("stroke", function (d) {
           var crimeIdx = crimeTypes.indexOf(d.crime);
@@ -151,7 +152,34 @@ function MapContainer(props) {
         }).attr("fill", function (d) {
           var crimeIdx = crimeTypes.indexOf(d.crime);
           return fillColors[crimeIdx];
-        }); // var marker = layer.selectAll(".marker")
+        }).on("mouseover", (mouseEvent, d) => {
+          // Runs when the mouse enters a dot.  d is the corresponding data point.
+          tooltip.style("opacity", 1);
+          tooltip.text("Crime:" + d.crime);
+        }).on("mousemove", (mouseEvent, d) => {
+          /* Runs when mouse moves inside a dot */
+          // var leftOffset = d3.pointer(mouseEvent)[0] + 3
+          // var leftOffset = dateScale((d.date)) + 3;
+          // tooltip.style("left", leftOffset + "px");
+          //
+          // var topOffset = d3.pointer(mouseEvent)[1] + 3
+          // var topOffset = priceScale(parseFloat(d.close)) + PADDING.TOP + 3;
+          // tooltip.style("top", topOffset + "px");
+        }).on("mouseout", (mouseEvent, d) => {
+          tooltip.style("opacity", 0);
+        }); //TODO: INVESTIGATE GOOGLE MOUSEOVER EVENT LISTENER AND HOW TO ACCESS DATA POINTS 
+        // google.maps.event.addListener(marker, 'mouseover', function () {
+        //   var point = fromLatLngToPoint(marker.getPosition(), map);
+        //   $('#marker-tooltip').html(marker.tooltipContent + '<br>Pixel coordinates: ' + point.x + ', ' + point.y).css({
+        //     'left': point.x,
+        //     'top': point.y
+        //   }).show();
+        // });
+        //
+        // google.maps.event.addListener(marker, 'mouseout', function () {
+        //   $('#marker-tooltip').hide();
+        // });
+        // var marker = layer.selectAll(".marker")
         // .data(pointData)
         // .each(transform)
         // .enter()
@@ -206,6 +234,12 @@ function MapContainer(props) {
   return /*#__PURE__*/React.createElement("div", {
     id: "fullChart"
   }, /*#__PURE__*/React.createElement("div", {
+    id: "tooltip",
+    className: "tooltip",
+    style: {
+      "opacity": 0
+    }
+  }, "Hover over a point to start!"), /*#__PURE__*/React.createElement("div", {
     id: "map"
   }));
 }
