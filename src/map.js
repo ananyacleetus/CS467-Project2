@@ -21,7 +21,7 @@ function MapContainer(props) {
   // - Fix projection (scaling from coordinates to pixels) so the points occur closer to the right spots on the map (can be done after police data is imported)
   // - Scale circle radius to change based on summed number of crimes of the same type in one location
   // - Scale circle radius depending on Zoom value?
-  // - Date filter??
+  // - Set up date filter to filter data upon submit being clicked
 
   const mapQuery = "UIUC";
   const UIUCLat = 40.1019523;
