@@ -6,7 +6,9 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
-import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons';
+import CheckBoxTwoToneIcon from '@material-ui/icons/CheckBoxTwoTone';
+import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone';
+
 
  //stylesheet
  import "..//css/sidebar.css";
@@ -95,43 +97,43 @@ import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons';
              <FormLabel id="selectText">Select one or more filters:</FormLabel>
              <FormGroup>
                <FormControlLabel
-                 control={<Checkbox checked={burglary} onChange={changeBurglary} className="burglary"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={burglary} onChange={changeBurglary} className="burglary"/>}
                  label="Burglary"
                />
                <FormControlLabel
-                 control={<Checkbox checked={idUse} onChange={changeIdUse} className="idUse"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={idUse} onChange={changeIdUse} className="idUse"/>}
                  label="Unlawful use of I.D."
                />
                <FormControlLabel
-                 control={<Checkbox checked={theftUnder} onChange={changeTheftUnder} className="theftUnder"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={theftUnder} onChange={changeTheftUnder} className="theftUnder"/>}
                  label="Theft $500 and under"
                />
                <FormControlLabel
-                 control={<Checkbox checked={theftOver} onChange={changeTheftOver} className="theftOver"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={theftOver} onChange={changeTheftOver} className="theftOver"/>}
                  label="Theft over $500"
                />
                <FormControlLabel
-                 control={<Checkbox checked={harrassment} onChange={changeHarrassment} className="harrassment"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={harrassment} onChange={changeHarrassment} className="harrassment"/>}
                  label="Harrassment"
                />
                <FormControlLabel
-                 control={<Checkbox checked={propertyDamage} onChange={changePropertyDamage} className="propertyDamage"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={propertyDamage} onChange={changePropertyDamage} className="propertyDamage"/>}
                  label="Criminal damange to property"
                />
                <FormControlLabel
-                 control={<Checkbox checked={tresspassing} onChange={changeTresspassing} className="tresspassing"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={tresspassing} onChange={changeTresspassing} className="tresspassing"/>}
                  label="Tresspassing"
                />
                <FormControlLabel
-                 control={<Checkbox checked={sexualAssault} onChange={changeSexualAssault} className="sexualAssault"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={sexualAssault} onChange={changeSexualAssault} className="sexualAssault"/>}
                  label="Sexual Assault"
                />
                <FormControlLabel
-                 control={<Checkbox checked={prostitution} onChange={changeProstitution} className="prostitution"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={prostitution} onChange={changeProstitution} className="prostitution"/>}
                  label="Prostitution"
                />
                <FormControlLabel
-                 control={<Checkbox checked={underageLiquor} onChange={changeUnderageLiquor} className="underageLiquor"/>}
+                 control={<Checkbox icon={<CheckBoxOutlineBlankTwoToneIcon/>} checked={underageLiquor} onChange={changeUnderageLiquor} className="underageLiquor"/>}
                  label="Liquor-underage"
                />
 

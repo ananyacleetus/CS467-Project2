@@ -6,7 +6,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
-import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons'; //stylesheet
+import CheckBoxTwoToneIcon from '@material-ui/icons/CheckBoxTwoTone';
+import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone'; //stylesheet
 
 import "..//css/sidebar.css";
 
@@ -88,6 +89,7 @@ function Sidebar(props) {
     id: "selectText"
   }, "Select one or more filters:"), /*#__PURE__*/React.createElement(FormGroup, null, /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: burglary,
       onChange: changeBurglary,
       className: "burglary"
@@ -95,6 +97,7 @@ function Sidebar(props) {
     label: "Burglary"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: idUse,
       onChange: changeIdUse,
       className: "idUse"
@@ -102,6 +105,7 @@ function Sidebar(props) {
     label: "Unlawful use of I.D."
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: theftUnder,
       onChange: changeTheftUnder,
       className: "theftUnder"
@@ -109,6 +113,7 @@ function Sidebar(props) {
     label: "Theft $500 and under"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: theftOver,
       onChange: changeTheftOver,
       className: "theftOver"
@@ -116,6 +121,7 @@ function Sidebar(props) {
     label: "Theft over $500"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: harrassment,
       onChange: changeHarrassment,
       className: "harrassment"
@@ -123,6 +129,7 @@ function Sidebar(props) {
     label: "Harrassment"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: propertyDamage,
       onChange: changePropertyDamage,
       className: "propertyDamage"
@@ -130,6 +137,7 @@ function Sidebar(props) {
     label: "Criminal damange to property"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: tresspassing,
       onChange: changeTresspassing,
       className: "tresspassing"
@@ -137,6 +145,7 @@ function Sidebar(props) {
     label: "Tresspassing"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: sexualAssault,
       onChange: changeSexualAssault,
       className: "sexualAssault"
@@ -144,6 +153,7 @@ function Sidebar(props) {
     label: "Sexual Assault"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: prostitution,
       onChange: changeProstitution,
       className: "prostitution"
@@ -151,6 +161,7 @@ function Sidebar(props) {
     label: "Prostitution"
   }), /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
+      icon: /*#__PURE__*/React.createElement(CheckBoxOutlineBlankTwoToneIcon, null),
       checked: underageLiquor,
       onChange: changeUnderageLiquor,
       className: "underageLiquor"

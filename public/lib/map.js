@@ -13,6 +13,47 @@ function MapContainer(props) {
   var mapQuery = "UIUC";
   var UIUCLat = 40.1019523;
   var UIUCLong = -88.2271615;
+  var colorData = [{
+    crimeType: "burglary",
+    outlineColor: "#FF4747",
+    fillColor: "#FFADAD"
+  }, {
+    crimeType: "idUse",
+    outlineColor: "#FFA93F",
+    fillColor: "#FFD6A5"
+  }, {
+    crimeType: "theftUnder",
+    outlineColor: "#FFE24E",
+    fillColor: "#FFEE99"
+  }, {
+    crimeType: "theftOver",
+    outlineColor: "#6FFF52",
+    fillColor: "#CAFFBF"
+  }, {
+    crimeType: "harrassment",
+    outlineColor: "#37EEFF",
+    fillColor: "#9BF6FF"
+  }, {
+    crimeType: "propertyDamage",
+    outlineColor: "#3B86FF",
+    fillColor: "#A0C4FF"
+  }, {
+    crimeType: "tresspassing",
+    outlineColor: "#664AFF",
+    fillColor: "#BDB2FF"
+  }, {
+    crimeType: "sexualAssault",
+    outlineColor: "#B352FF",
+    fillColor: "#DEBCFF"
+  }, {
+    crimeType: "prostitution",
+    outlineColor: "#FF5AFF",
+    fillColor: "#FFC6FF"
+  }, {
+    crimeType: "underageLiquor",
+    outlineColor: "#B1B1A8",
+    fillColor: "#DDDDD1"
+  }];
   var pointData = [{
     lat: 40.10935,
     long: -88.2310087
@@ -73,7 +114,7 @@ function MapContainer(props) {
       overlayView.draw = function () {
         var projection = this.getProjection();
         var marker = layer.selectAll("svg").data(pointData).each(transform).enter().append("svg").each(transform).attr("class", "marker");
-        marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke", "#1EA1F2").attr("fill", "#1EA1F2"); // var marker = layer.selectAll(".marker")
+        marker.append("circle").attr("r", circleRadius).attr("cx", padding).attr("cy", padding).attr("stroke", "#FF4747").attr("fill", "#FFADAD"); // var marker = layer.selectAll(".marker")
         // .data(pointData)
         // .each(transform)
         // .enter()

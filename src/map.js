@@ -17,6 +17,19 @@ function MapContainer(props) {
   const UIUCLat = 40.1019523;
   const UIUCLong = -88.2271615;
 
+  const colorData = [
+    {crimeType: "burglary", outlineColor: "#FF4747", fillColor: "#FFADAD"},
+    {crimeType: "idUse", outlineColor: "#FFA93F", fillColor: "#FFD6A5"},
+    {crimeType: "theftUnder", outlineColor: "#FFE24E", fillColor: "#FFEE99"},
+    {crimeType: "theftOver", outlineColor: "#6FFF52", fillColor: "#CAFFBF"},
+    {crimeType: "harrassment", outlineColor: "#37EEFF", fillColor: "#9BF6FF"},
+    {crimeType: "propertyDamage", outlineColor: "#3B86FF", fillColor: "#A0C4FF"},
+    {crimeType: "tresspassing", outlineColor: "#664AFF", fillColor: "#BDB2FF"},
+    {crimeType: "sexualAssault", outlineColor: "#B352FF", fillColor: "#DEBCFF"},
+    {crimeType: "prostitution", outlineColor: "#FF5AFF", fillColor: "#FFC6FF"},
+    {crimeType: "underageLiquor", outlineColor: "#B1B1A8", fillColor: "#DDDDD1"},
+  ]
+
   const pointData = [{lat: 40.10935, long: -88.2310087}, {lat: 40.1125993, long: -88.2272643}, {lat: 40.1090874, long: -88.2313091}];
 
   //These props are sent from the callback functions from the sidebar to the main layout to the map
@@ -102,8 +115,8 @@ function MapContainer(props) {
       .attr("r", circleRadius)
       .attr("cx", padding)
       .attr("cy", padding)
-      .attr("stroke", "#1EA1F2")
-      .attr("fill", "#1EA1F2");
+      .attr("stroke", "#FF4747")
+      .attr("fill", "#FFADAD");
 
 
       // var marker = layer.selectAll(".marker")

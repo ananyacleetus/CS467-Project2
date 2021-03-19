@@ -5,7 +5,7 @@ html {
 }
 
 .fullsidebar {
-  background-color: #CED0CE;
+  background-color: #F2F2F2;
   height: 100%;
   overflow: auto;
   width: 100%;
@@ -13,50 +13,50 @@ html {
 }
 
 .MuiCheckbox-root.burglary	{
-  color: green !important;
+  color: #FF4747 !important;
 }
 
 
 .MuiCheckbox-root.idUse	{
-  color: blue !important;
+  color: #FFA93F !important;
 }
 
 
 .MuiCheckbox-root.theftUnder	{
-  color: yellow !important;
+  color: #FFE24E !important;
 }
 
 
 .MuiCheckbox-root.theftOver	{
-  color: orange !important;
+  color: #6FFF52 !important;
 }
 
 
 .MuiCheckbox-root.harrassment	{
-  color: purple !important;
+  color: #37EEFF !important;
 }
 
 
 .MuiCheckbox-root.propertyDamage	{
-  color: pink !important;
+  color: #3B86FF !important;
 }
 
 .MuiCheckbox-root.tresspassing	{
-  color: teal !important;
+  color: #664AFF !important;
 }
 
 
 .MuiCheckbox-root.sexualAssault	{
-  color: red !important;
+  color: #B352FF !important;
 }
 
 .MuiCheckbox-root.prostitution	{
-  color: black !important;
+  color: #FF5AFF !important;
 }
 
 
 .MuiCheckbox-root.underageLiquor	{
-  color: gray !important;
+  color: #B1B1A8 !important;
 }
 
 
