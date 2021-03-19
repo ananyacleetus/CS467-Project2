@@ -59,8 +59,31 @@ html {
   color: #B1B1A8 !important;
 }
 
+.MuiButton-label	{
+  font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+}
+
+
+.MuiButton-containedPrimary {
+
+  background-color: #664AFF;
+}
 
 #selectText {
   margin-bottom: 10px;
   color: #000000;
+}
+
+
+#startDateBox {
+  margin-bottom: 25px;
+}
+
+
+#endDateBox {
+ margin-bottom: 25px;
+}
+
+#dateBox {
+  margin-top: 45px;
 }

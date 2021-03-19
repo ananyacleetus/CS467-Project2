@@ -7,7 +7,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxTwoToneIcon from '@material-ui/icons/CheckBoxTwoTone';
-import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone'; //stylesheet
+import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone';
+import { TextField, Button } from '@material-ui/core'; //stylesheet
 
 import "..//css/sidebar.css";
 
@@ -85,7 +86,7 @@ function Sidebar(props) {
 
   return /*#__PURE__*/React.createElement("div", {
     className: "fullsidebar"
-  }, /*#__PURE__*/React.createElement("h2", null, "Crime Descriptions:"), /*#__PURE__*/React.createElement(FormControl, null, /*#__PURE__*/React.createElement(FormLabel, {
+  }, /*#__PURE__*/React.createElement("h2", null, "Crime Description Filter:"), /*#__PURE__*/React.createElement(FormControl, null, /*#__PURE__*/React.createElement(FormLabel, {
     id: "selectText"
   }, "Select one or more filters:"), /*#__PURE__*/React.createElement(FormGroup, null, /*#__PURE__*/React.createElement(FormControlLabel, {
     control: /*#__PURE__*/React.createElement(Checkbox, {
@@ -167,7 +168,34 @@ function Sidebar(props) {
       className: "underageLiquor"
     }),
     label: "Liquor-underage"
-  }))), /*#__PURE__*/React.createElement("h2", null, "Date/Time Filters:"));
+  }))), /*#__PURE__*/React.createElement("div", {
+    id: "dateBox"
+  }, /*#__PURE__*/React.createElement("h2", null, "Date Filter:"), /*#__PURE__*/React.createElement("form", {
+    noValidate: true
+  }, /*#__PURE__*/React.createElement("div", {
+    id: "startDateBox"
+  }, /*#__PURE__*/React.createElement(TextField, {
+    id: "startDate",
+    label: "Start Date",
+    type: "date",
+    defaultValue: "2020-01-25",
+    InputLabelProps: {
+      shrink: true
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    id: "endDateBox"
+  }, /*#__PURE__*/React.createElement(TextField, {
+    id: "endDate",
+    label: "End Date",
+    type: "date",
+    defaultValue: "2021-03-19",
+    InputLabelProps: {
+      shrink: true
+    }
+  }))), /*#__PURE__*/React.createElement(Button, {
+    variant: "contained",
+    color: "primary"
+  }, "Submit")));
 }
 
 export default Sidebar;

@@ -8,6 +8,9 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxTwoToneIcon from '@material-ui/icons/CheckBoxTwoTone';
 import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone';
+import { TextField, Button} from '@material-ui/core';
+
+
 
 
  //stylesheet
@@ -91,7 +94,7 @@ import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineB
 
        <div className="fullsidebar">
 
-         <h2>Crime Descriptions:</h2>
+         <h2>Crime Description Filter:</h2>
 
            <FormControl>
              <FormLabel id="selectText">Select one or more filters:</FormLabel>
@@ -141,7 +144,38 @@ import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineB
            </FormControl>
 
 
-         <h2>Date/Time Filters:</h2>
+
+         <div id="dateBox">
+           <h2>Date Filter:</h2>
+           <form noValidate>
+             <div id="startDateBox">
+     <TextField
+       id="startDate"
+       label="Start Date"
+       type="date"
+       defaultValue="2020-01-25"
+       InputLabelProps={{
+         shrink: true,
+       }}
+     />
+   </div>
+   <div id="endDateBox">
+     <TextField
+       id="endDate"
+       label="End Date"
+       type="date"
+       defaultValue="2021-03-19"
+       InputLabelProps={{
+         shrink: true,
+       }}
+     />
+   </div>
+   </form>
+
+   <Button variant="contained" color="primary">
+  Submit
+</Button>
+       </div>
 
    </div>
 
