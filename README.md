@@ -14,7 +14,8 @@ This template uses the snowpack build system (https://www.snowpack.dev/).
 1. Ensure NodeJS is installed.  Go here to install: https://nodejs.org/en/ (recommended: version 15).
 2. In a terminal, `npm install`.
 - If you get an `ERESOLVE` error with the dependency tree, run `npm install --legacy-peer-deps`
-4. In a different terminal, `npm run babel`.
+3. In a different terminal, `npm run babel`.
 4. In a different terminal, in the project directory `npm start`. This starts a local server that serves up the contents of the `public` folder, and the js
 in the `src` folder.
+- If you get a 404 error for config.js, make sure you get the Google Map API credentials from Ananya (cleetus2@illinois.edu) since they are not included in the repo
 5. Your web browser should automatically open, but if it doesn't, your terminal window should contain helpful information.
