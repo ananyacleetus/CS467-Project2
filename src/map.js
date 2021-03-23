@@ -1,11 +1,16 @@
 import * as d3 from "d3";
-import { utcParse } from "d3";
+import { text, utcParse } from "d3";
 import React, { useState, useEffect } from "react";
 import * as KEYS from '/dist/config.js'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+
+
 //stylesheet
 import "..//css/map.css";
+import { teal } from "@material-ui/core/colors";
+
+
 
 const API_KEY = KEYS.GOOGLE_API_KEY;
 var map;
@@ -133,6 +138,9 @@ function MapContainer(props) {
 
     window.addEventListener("load", initMap);
 
+    let map; 
+
+    let markers_burglary = [];
 
     function initMap() {
 
@@ -143,18 +151,36 @@ function MapContainer(props) {
       });
 
 
+      // official 
+      var infowindow = new google.maps.InfoWindow();
+      var marker , i;
+      for(i = 0; i < fakeData.length ; i++){
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(fakeData[i].lat, fakeData[i].long),
+          map: map,
+        })
+        
+        
+        google.maps.event.addListener(marker, "mouseover", 
+            (function(marker, i){
+              return function(){
+                infowindow.setContent(fakeData[i].crime);
+                infowindow.open(map, marker);
+              }
+            })
+            (marker, i)
+          )
+         
+        if(fakeData[i].crime == "harrassment"){
+          markers_burglary.push(marker);
+        }
 
-
-      //
-      // var overlayView = new google.maps.OverlayView({
-      //                 setMap : map
-      //             });
-
-
+      }
+      
+      
       overlayView = new google.maps.OverlayView({
         setMap: map
       });
-
 
       overlayView.onAdd = function () {
 
@@ -211,34 +237,6 @@ function MapContainer(props) {
           });
 
 
-          //TODO: INVESTIGATE GOOGLE MOUSEOVER EVENT LISTENER AND HOW TO ACCESS DATA POINTS
-          // google.maps.event.addListener(marker, 'mouseover', function () {
-          //   var point = fromLatLngToPoint(marker.getPosition(), map);
-          //   $('#marker-tooltip').html(marker.tooltipContent + '<br>Pixel coordinates: ' + point.x + ', ' + point.y).css({
-          //     'left': point.x,
-          //     'top': point.y
-          //   }).show();
-          // });
-          //
-          // google.maps.event.addListener(marker, 'mouseout', function () {
-          //   $('#marker-tooltip').hide();
-          // });
-
-
-          // var marker = layer.selectAll(".marker")
-          // .data(pointData)
-          // .each(transform)
-          // .enter()
-          // .append("circle")
-          // .each(transform)
-          // .attr("class", "marker")
-          // .attr("r", circleRadius)
-          // .attr("cx", padding)
-          // .attr("cy", padding)
-          // .attr("stroke", "#1EA1F2")
-          // .attr("fill", "#1EA1F2");
-
-
 
           function transform(d) {
             d = new google.maps.LatLng(d.lat, d.long);
@@ -252,40 +250,28 @@ function MapContainer(props) {
 
 
       };
-
+      
       overlayView.setMap(map);
+
+      
 
     };
 
-    // overlayView.onRemove = function () {
-    //   d3.select(this.getPanes().overlayLayer).remove(".crimeSpots");
-    // };
+    // Removes the markers from the map, but keeps them in the array.
+    function setMarkersOnOffMap(map, markers_burglary) {
+      for(var i = 0; i < markers_burglary.length; i++){
+        arrayName[i].setMap(map);
+      }
+    }
 
-    // <Map google={props.google} zoom={16} id="map"
-    //   initialCenter={
-    //     {
-    //       lat: UIUCLat,
-    //       lng: UIUCLong
-    //     }
-    //   }
-    //   style={mapStyle}>
-    //   {
-    //
-    // }
-    // </Map>
+    // Shows any markers currently in the array.
+    function showMarkers() {
+      setMarkersOnOffMap(map, markers_burglary);
+    }
 
-    // map = google.maps.getMap();
-
-    // map = document.getElementById("#map");
-    // <OverlayView
-    //  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-    // </OverlayView>
-
-
-
-    // useEffect(() => {
-    //   initMap();
-    // });
+    function clearMarkers(){
+      setMarkersOnOffMap(null, markers_burglary);
+    }
 
 
     useEffect(() => {
@@ -303,6 +289,9 @@ function MapContainer(props) {
     );
 
   }
+
+  export default Map;
+ 
 
   export default GoogleApiWrapper({
     apiKey: API_KEY

@@ -8,7 +8,9 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxTwoToneIcon from '@material-ui/icons/CheckBoxTwoTone';
 import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone';
-import { TextField, Button } from '@material-ui/core'; //stylesheet
+import { TextField, Button } from '@material-ui/core'; // import {GoogleApiWrapper} from './map.js';
+
+import Map from "/lib/map.js"; //stylesheet
 
 import "..//css/sidebar.css";
 
@@ -29,6 +31,7 @@ function Sidebar(props) {
   var changeBurglary = setVal => {
     setVal = !burglary;
     setBurglary(setVal);
+    clearMarkers();
     props.onChangeBurglary(setVal);
   };
 

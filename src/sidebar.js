@@ -10,6 +10,11 @@ import CheckBoxTwoToneIcon from '@material-ui/icons/CheckBoxTwoTone';
 import CheckBoxOutlineBlankTwoToneIcon from '@material-ui/icons/CheckBoxOutlineBlankTwoTone';
 import { TextField, Button} from '@material-ui/core';
 
+// import {GoogleApiWrapper} from './map.js';
+import Map from "/lib/map.js";
+
+
+
 
 
 
@@ -38,6 +43,7 @@ function Sidebar (props) {
   const changeBurglary = (setVal) => {
     setVal = !burglary;
     setBurglary(setVal);
+    clearMarkers();
     props.onChangeBurglary(setVal);
   }
   const changeIdUse = (setVal) => {
