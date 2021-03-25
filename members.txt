@@ -1,6 +1,13 @@
 Members:
 
 Ananya Cleetus (netid: cleetus2):
+-Wrote audience, ethical concerns, tools and analysis, related works/citations and influences slides 
+-Set up d3 with sample data and sample location crime types displaying
+-Set up React app with functional components and basic styling (set up Babel compiling for Typescript)
+-Created dashboard layout, Material UI checklist buttons and date filtering
+-Set up Google Maps JS API to create UIUC map and draw basic circles with test data
+-Set up states and callbacks to transfer props between sidebar, map, and to/from layout
+-Created first intro page and all styling
 
 Kimi Hirano (netid: khirano2):
 
